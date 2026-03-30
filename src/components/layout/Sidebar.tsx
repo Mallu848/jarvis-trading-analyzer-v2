@@ -94,23 +94,24 @@ function SidebarContents({ onClose, mobile = false }: { onClose: () => void; mob
       {/* Logo */}
       <div style={{ padding: mobile ? '20px 16px 16px 16px' : '20px 16px 16px', borderBottom: '1px solid #1e1e2e' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-          <div style={{ width: 36, height: 36, borderRadius: 8, background: 'linear-gradient(135deg, #5b21b6, #0891b2)', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 0 14px rgba(139,92,246,0.55)' }}>
+          <div style={{ width: 36, height: 36, borderRadius: 8, background: '#080d14', border: '1px solid rgba(34,197,94,0.5)', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 0 18px rgba(34,197,94,0.4), 0 0 6px rgba(74,222,128,0.2), inset 0 0 10px rgba(34,197,94,0.08)' }}>
             <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
-              {/* Candlestick 1 */}
-              <line x1="4" y1="11.5" x2="4" y2="14" stroke="white" strokeOpacity="0.45" strokeWidth="1.1" strokeLinecap="round"/>
-              <rect x="2.5" y="14" width="3" height="5.5" rx="0.6" fill="white" fillOpacity="0.9"/>
-              <line x1="4" y1="19.5" x2="4" y2="21" stroke="white" strokeOpacity="0.45" strokeWidth="1.1" strokeLinecap="round"/>
-              {/* Candlestick 2 */}
-              <line x1="11" y1="8" x2="11" y2="10.5" stroke="white" strokeOpacity="0.45" strokeWidth="1.1" strokeLinecap="round"/>
-              <rect x="9.5" y="10.5" width="3" height="7" rx="0.6" fill="white" fillOpacity="0.9"/>
-              <line x1="11" y1="17.5" x2="11" y2="19" stroke="white" strokeOpacity="0.45" strokeWidth="1.1" strokeLinecap="round"/>
-              {/* Candlestick 3 */}
-              <line x1="18" y1="3.5" x2="18" y2="6" stroke="white" strokeOpacity="0.45" strokeWidth="1.1" strokeLinecap="round"/>
-              <rect x="16.5" y="6" width="3" height="9" rx="0.6" fill="white" fillOpacity="0.9"/>
-              <line x1="18" y1="15" x2="18" y2="16.5" stroke="white" strokeOpacity="0.45" strokeWidth="1.1" strokeLinecap="round"/>
-              {/* Trend line + arrow */}
-              <polyline points="4,15.5 11,12 18,8" stroke="#22d3ee" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
-              <polyline points="15.5,6.5 18,8 20.5,6.5" stroke="#22d3ee" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+              {/* Candle 1 — left, short */}
+              <line x1="5" y1="14.5" x2="5" y2="16.5" stroke="#22c55e" strokeWidth="1" strokeLinecap="round"/>
+              <rect x="3.25" y="16.5" width="3.5" height="4" rx="0.5" fill="#22c55e"/>
+              <line x1="5" y1="20.5" x2="5" y2="22" stroke="#22c55e" strokeWidth="1" strokeLinecap="round"/>
+              {/* Candle 2 — center, medium */}
+              <line x1="11" y1="9.5" x2="11" y2="11.5" stroke="#22c55e" strokeWidth="1" strokeLinecap="round"/>
+              <rect x="9.25" y="11.5" width="3.5" height="6" rx="0.5" fill="#22c55e"/>
+              <line x1="11" y1="17.5" x2="11" y2="19.5" stroke="#22c55e" strokeWidth="1" strokeLinecap="round"/>
+              {/* Candle 3 — right, tallest */}
+              <line x1="17" y1="3.5" x2="17" y2="5.5" stroke="#22c55e" strokeWidth="1" strokeLinecap="round"/>
+              <rect x="15.25" y="5.5" width="3.5" height="8" rx="0.5" fill="#22c55e"/>
+              <line x1="17" y1="13.5" x2="17" y2="16" stroke="#22c55e" strokeWidth="1" strokeLinecap="round"/>
+              {/* Rising trend line through tops */}
+              <polyline points="5,16.5 11,11.5 17,5.5" stroke="#4ade80" strokeWidth="0.9" strokeLinecap="round" strokeLinejoin="round" fill="none" strokeDasharray="1.8 1.2" opacity="0.8"/>
+              {/* Arrowhead */}
+              <path d="M15,7 L17,3.5 L19,7" stroke="#4ade80" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" fill="none" opacity="0.9"/>
             </svg>
           </div>
           <div>
