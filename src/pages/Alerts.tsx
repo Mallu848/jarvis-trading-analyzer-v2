@@ -5,6 +5,7 @@ import { Bell, BellOff, Trash2, Pause, Play } from 'lucide-react'
 import Card, { CardHeader } from '../components/ui/Card'
 import Badge from '../components/ui/Badge'
 import { useAlertsStore } from '../store/index'
+import { sanitizeTicker, sanitizeNote } from '../utils/sanitize'
 import type { AlertCondition, AlertStatus } from '../types/alerts'
 
 const CONDITION_LABELS: Record<AlertCondition, string> = {
@@ -118,7 +119,7 @@ export default function Alerts() {
                 <label style={{ fontSize: 11, color: '#64748b', display: 'block', marginBottom: 3 }}>Ticker *</label>
                 <input
                   value={form.ticker}
-                  onChange={e => setForm(f => ({ ...f, ticker: e.target.value.toUpperCase() }))}
+                  onChange={e => setForm(f => ({ ...f, ticker: sanitizeTicker(e.target.value) }))}
                   placeholder="TSLA"
                   style={inputStyle}
                 />
@@ -150,7 +151,7 @@ export default function Alerts() {
                 <label style={{ fontSize: 11, color: '#64748b', display: 'block', marginBottom: 3 }}>Note (optional)</label>
                 <input
                   value={form.note}
-                  onChange={e => setForm(f => ({ ...f, note: e.target.value }))}
+                  onChange={e => setForm(f => ({ ...f, note: sanitizeNote(e.target.value) }))}
                   placeholder="Reason for alert…"
                   style={inputStyle}
                 />

@@ -1,12 +1,20 @@
 import https from 'https'
+import { rateLimit } from './_rateLimit.mjs'
+
+const COIN_RE = /^[a-z0-9\-]{1,50}$/
 
 export const handler = async (event) => {
-  const pathParts = (event.path || '').split('/').filter(Boolean)
-  const coinId = event.queryStringParameters?.coinId || pathParts.pop() || ''
-  const days = event.queryStringParameters?.days || '90'
+  const blocked = rateLimit(event)
+  if (blocked) return blocked
 
-  if (!coinId || coinId === 'crypto') {
-    return { statusCode: 400, body: JSON.stringify({ error: 'coinId is required.' }) }
+  const pathParts = (event.path || '').split('/').filter(Boolean)
+  const coinId = (event.queryStringParameters?.coinId || pathParts.pop() || '').toLowerCase().trim()
+  // Sanitize days: only allow known safe values
+  const VALID_DAYS = ['1', '7', '14', '30', '90', '180', '365']
+  const days = VALID_DAYS.includes(event.queryStringParameters?.days || '') ? event.queryStringParameters.days : '90'
+
+  if (!coinId || coinId === 'crypto' || !COIN_RE.test(coinId)) {
+    return { statusCode: 400, body: JSON.stringify({ error: 'Invalid coin ID.' }) }
   }
 
   return new Promise(resolve => {

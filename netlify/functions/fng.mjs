@@ -1,6 +1,9 @@
 import https from 'https'
+import { rateLimit } from './_rateLimit.mjs'
 
-export const handler = async () => {
+export const handler = async (event) => {
+  const blocked = rateLimit(event)
+  if (blocked) return blocked
   return new Promise(resolve => {
     https.get('https://api.alternative.me/fng/', {
       headers: { 'User-Agent': 'Mozilla/5.0' }

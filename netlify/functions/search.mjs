@@ -1,4 +1,5 @@
 import https from 'https'
+import { rateLimit } from './_rateLimit.mjs'
 
 function yahooFetch(url) {
   return new Promise((resolve, reject) => {
@@ -16,7 +17,13 @@ function yahooFetch(url) {
 }
 
 export const handler = async (event) => {
-  const q = event.queryStringParameters?.q || ''
+  const blocked = rateLimit(event)
+  if (blocked) return blocked
+
+  // Sanitize: alphanumeric + space/dot/dash only, max 50 chars
+  const q = (event.queryStringParameters?.q || '').replace(/[^a-zA-Z0-9 .\-]/g, '').slice(0, 50)
+  if (!q) return { statusCode: 400, body: JSON.stringify({ error: 'Query is required.' }) }
+
   try {
     const d = await yahooFetch(
       `https://query2.finance.yahoo.com/v1/finance/search?q=${encodeURIComponent(q)}&quotesCount=8&newsCount=0`

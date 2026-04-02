@@ -94,25 +94,17 @@ function SidebarContents({ onClose, mobile = false }: { onClose: () => void; mob
       {/* Logo */}
       <div style={{ padding: mobile ? '20px 16px 16px 16px' : '20px 16px 16px', borderBottom: '1px solid #1e1e2e' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-          <div style={{ width: 36, height: 36, borderRadius: 8, background: '#080d14', border: '1px solid rgba(34,197,94,0.5)', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 0 18px rgba(34,197,94,0.4), 0 0 6px rgba(74,222,128,0.2), inset 0 0 10px rgba(34,197,94,0.08)' }}>
-            <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
-              {/* Candle 1 — left, short */}
-              <line x1="5" y1="14.5" x2="5" y2="16.5" stroke="#22c55e" strokeWidth="1" strokeLinecap="round"/>
-              <rect x="3.25" y="16.5" width="3.5" height="4" rx="0.5" fill="#22c55e"/>
-              <line x1="5" y1="20.5" x2="5" y2="22" stroke="#22c55e" strokeWidth="1" strokeLinecap="round"/>
-              {/* Candle 2 — center, medium */}
-              <line x1="11" y1="9.5" x2="11" y2="11.5" stroke="#22c55e" strokeWidth="1" strokeLinecap="round"/>
-              <rect x="9.25" y="11.5" width="3.5" height="6" rx="0.5" fill="#22c55e"/>
-              <line x1="11" y1="17.5" x2="11" y2="19.5" stroke="#22c55e" strokeWidth="1" strokeLinecap="round"/>
-              {/* Candle 3 — right, tallest */}
-              <line x1="17" y1="3.5" x2="17" y2="5.5" stroke="#22c55e" strokeWidth="1" strokeLinecap="round"/>
-              <rect x="15.25" y="5.5" width="3.5" height="8" rx="0.5" fill="#22c55e"/>
-              <line x1="17" y1="13.5" x2="17" y2="16" stroke="#22c55e" strokeWidth="1" strokeLinecap="round"/>
-              {/* Rising trend line through tops */}
-              <polyline points="5,16.5 11,11.5 17,5.5" stroke="#4ade80" strokeWidth="0.9" strokeLinecap="round" strokeLinejoin="round" fill="none" strokeDasharray="1.8 1.2" opacity="0.8"/>
-              {/* Arrowhead */}
-              <path d="M15,7 L17,3.5 L19,7" stroke="#4ade80" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" fill="none" opacity="0.9"/>
-            </svg>
+          <div style={{
+            width: 38, height: 38, borderRadius: 9,
+            background: '#030d06',
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            boxShadow: '0 0 0 1px rgba(34,197,94,0.55), 0 0 14px rgba(34,197,94,0.4), 0 0 28px rgba(34,197,94,0.12)',
+          }}>
+            <span style={{
+              fontWeight: 800, fontSize: 22, color: '#22c55e',
+              fontFamily: 'Georgia, serif', lineHeight: 1,
+              textShadow: '0 0 8px rgba(34,197,94,0.6)',
+            }}>J</span>
           </div>
           <div>
             <div style={{ fontWeight: 700, fontSize: 15, color: '#f1f5f9', letterSpacing: '0.05em' }}>JARVIS</div>

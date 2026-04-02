@@ -9,6 +9,7 @@ import { SkeletonCard } from '../components/ui/Skeleton'
 import { useWatchlistStore, useRecentStore } from '../store/index'
 import { fetchMarketOverview, fetchFearAndGreed } from '../api/market'
 import { fmt, pnlColor } from '../utils/format'
+import { sanitizeTicker } from '../utils/sanitize'
 import type { MarketOverviewItem } from '../types/market'
 
 function fngLabel(v: number): { label: string; color: string } {
@@ -110,7 +111,7 @@ export default function Dashboard() {
                 <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
                   <input
                     value={addInput}
-                    onChange={e => setAddInput(e.target.value.toUpperCase())}
+                    onChange={e => setAddInput(sanitizeTicker(e.target.value))}
                     onKeyDown={e => e.key === 'Enter' && handleAddTicker()}
                     placeholder="Add ticker…"
                     style={{

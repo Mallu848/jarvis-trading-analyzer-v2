@@ -42,7 +42,20 @@ export default function Layout() {
               <line x1="3" y1="18" x2="21" y2="18" />
             </svg>
           </button>
-          <div style={{ fontWeight: 700, fontSize: 15, color: '#f1f5f9', letterSpacing: '0.05em' }}>JARVIS V2</div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+            <div style={{ width: 28, height: 28, borderRadius: 7, background: '#040e1c', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 0 0 1px rgba(59,130,246,0.55), 0 0 10px rgba(59,130,246,0.35)' }}>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                <path d="M5,9 L5,5 L9,5" stroke="#3b82f6" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M15,5 L19,5 L19,9" stroke="#3b82f6" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M19,15 L19,19 L15,19" stroke="#22c55e" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M9,19 L5,19 L5,15" stroke="#22c55e" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+                <circle cx="12" cy="12" r="3" stroke="#3b82f6" strokeWidth="0.8" fill="none" opacity="0.45"/>
+                <circle cx="12" cy="12" r="1.6" fill="#3b82f6"/>
+                <circle cx="12" cy="12" r="0.7" fill="#93c5fd"/>
+              </svg>
+            </div>
+            <div style={{ fontWeight: 700, fontSize: 15, color: '#f1f5f9', letterSpacing: '0.05em' }}>JARVIS</div>
+          </div>
         </div>
 
         <Outlet />

@@ -1,4 +1,7 @@
 import https from 'https'
+import { rateLimit } from './_rateLimit.mjs'
+
+const TICKER_RE = /^[A-Z0-9.\-\^]{1,10}$/
 
 function yahooFetch(url) {
   return new Promise((resolve, reject) => {
@@ -16,7 +19,16 @@ function yahooFetch(url) {
 }
 
 export const handler = async (event) => {
-  const symbols = (event.queryStringParameters?.symbols || '').split(',').filter(Boolean)
+  const blocked = rateLimit(event)
+  if (blocked) return blocked
+
+  // Sanitize: only valid tickers, max 20 symbols per request
+  const symbols = (event.queryStringParameters?.symbols || '')
+    .split(',')
+    .map(s => s.toUpperCase().trim())
+    .filter(s => TICKER_RE.test(s))
+    .slice(0, 20)
+
   try {
     const results = {}
     await Promise.all(symbols.map(async sym => {

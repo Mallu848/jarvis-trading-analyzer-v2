@@ -1,4 +1,7 @@
 import https from 'https'
+import { rateLimit } from './_rateLimit.mjs'
+
+const TICKER_RE = /^[A-Z0-9.\-\^]{1,10}$/
 
 function yahooFetch(url) {
   return new Promise((resolve, reject) => {
@@ -16,12 +19,15 @@ function yahooFetch(url) {
 }
 
 export const handler = async (event) => {
+  const blocked = rateLimit(event)
+  if (blocked) return blocked
+
   const pathParts = (event.path || '').split('/').filter(Boolean)
   const ticker = (event.queryStringParameters?.ticker || pathParts.pop() || '').toUpperCase().trim()
-  const expiration = event.queryStringParameters?.expiration || ''
+  const expiration = (event.queryStringParameters?.expiration || '').replace(/[^0-9]/g, '').slice(0, 10)
 
-  if (!ticker || ticker === 'options') {
-    return { statusCode: 400, body: JSON.stringify({ error: 'Ticker is required.' }) }
+  if (!ticker || ticker === 'options' || !TICKER_RE.test(ticker)) {
+    return { statusCode: 400, body: JSON.stringify({ error: 'Invalid ticker symbol.' }) }
   }
 
   try {

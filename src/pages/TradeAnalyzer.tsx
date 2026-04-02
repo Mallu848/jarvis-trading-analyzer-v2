@@ -9,6 +9,7 @@ import { useWatchlistStore, useSettingsStore, useRecentStore } from '../store/in
 import { fetchStockAnalysis } from '../api/yahoo'
 import { positionSizer } from '../lib/blackScholes'
 import { fmt, pnlColor } from '../utils/format'
+import { sanitizeTicker, clampNumber } from '../utils/sanitize'
 
 function verdictVariant(v: string): 'green' | 'red' | 'amber' | 'blue' | 'muted' {
   const low = v.toLowerCase()
@@ -37,6 +38,40 @@ function trendColor(t: string) {
   return '#64748b'
 }
 
+function plainCallout(
+  verdict: string,
+  entryConservative: number,
+  target1: number,
+  stopNormal: number,
+): { emoji: string; headline: string; text: string; color: string; bg: string } {
+  const v = verdict.toLowerCase()
+  if (v.includes('bull') || v.includes('buy') || v.includes('strong')) {
+    return {
+      emoji: '📈',
+      headline: 'Looks like a Buy',
+      text: `The indicators are bullish. A safe entry is around ${fmt.price(entryConservative)}. First target is ${fmt.price(target1)}. If the trade goes against you, cut your loss around ${fmt.price(stopNormal)}.`,
+      color: '#22c55e',
+      bg: '#22c55e10',
+    }
+  }
+  if (v.includes('bear') || v.includes('sell') || v.includes('avoid')) {
+    return {
+      emoji: '📉',
+      headline: 'Avoid or Sell',
+      text: `The stock is showing weakness. This is not a great time to buy. If you're already holding, consider your exit. Bears are in control right now.`,
+      color: '#ef4444',
+      bg: '#ef444410',
+    }
+  }
+  return {
+    emoji: '⏸',
+    headline: 'Wait for a Clearer Setup',
+    text: `Signals are mixed — no strong direction yet. It's best to wait before entering. A clear breakout or breakdown will give a better entry.`,
+    color: '#f59e0b',
+    bg: '#f59e0b10',
+  }
+}
+
 export default function TradeAnalyzer() {
   const { ticker } = useParams<{ ticker: string }>()
   const navigate = useNavigate()
@@ -45,8 +80,11 @@ export default function TradeAnalyzer() {
   const recent = useRecentStore()
 
   const [searchInput, setSearchInput] = useState('')
-  const [accountSize, setAccountSize] = useState(settings.accountSize)
-  const [riskPct, setRiskPct] = useState(settings.riskPct)
+  const [accountSizeStr, setAccountSizeStr] = useState(String(settings.accountSize))
+  const [riskPctStr, setRiskPctStr] = useState(String(settings.riskPct))
+
+  const accountSize = parseFloat(accountSizeStr) || 0
+  const riskPct = parseFloat(riskPctStr) || 0.1
 
   const { data, isLoading, isError, error } = useQuery({
     queryKey: ['analysis', ticker],
@@ -77,7 +115,7 @@ export default function TradeAnalyzer() {
           <div style={{ display: 'flex', gap: 10 }}>
             <input
               value={searchInput}
-              onChange={e => setSearchInput(e.target.value.toUpperCase())}
+              onChange={e => setSearchInput(sanitizeTicker(e.target.value))}
               onKeyDown={e => e.key === 'Enter' && searchInput.trim() && navigate(`/analyze/${searchInput.trim()}`)}
               placeholder="e.g. TSLA, AAPL, BTC-USD"
               autoFocus
@@ -134,7 +172,7 @@ export default function TradeAnalyzer() {
             <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
               <input
                 value={searchInput}
-                onChange={e => setSearchInput(e.target.value.toUpperCase())}
+                onChange={e => setSearchInput(sanitizeTicker(e.target.value))}
                 onKeyDown={e => e.key === 'Enter' && searchInput.trim() && navigate(`/analyze/${searchInput.trim()}`)}
                 placeholder="Switch ticker…"
                 style={{
@@ -195,6 +233,23 @@ export default function TradeAnalyzer() {
               </span>
             </div>
           )}
+
+          {/* Plain English Callout */}
+          {(() => {
+            const c = plainCallout(setup.verdict, setup.entryConservative, setup.target1, setup.stopNormal)
+            return (
+              <div style={{
+                background: c.bg, border: `1px solid ${c.color}40`, borderRadius: 10,
+                padding: '16px 20px', display: 'flex', gap: 14, alignItems: 'flex-start',
+              }}>
+                <span style={{ fontSize: 28, lineHeight: 1 }}>{c.emoji}</span>
+                <div>
+                  <div style={{ fontSize: 16, fontWeight: 800, color: c.color, marginBottom: 6 }}>{c.headline}</div>
+                  <div style={{ fontSize: 14, color: '#cbd5e1', lineHeight: 1.65 }}>{c.text}</div>
+                </div>
+              </div>
+            )
+          })()}
 
           {/* Quote Header */}
           <Card>
@@ -337,8 +392,8 @@ export default function TradeAnalyzer() {
                 <label style={{ fontSize: 11, color: '#64748b', display: 'block', marginBottom: 4 }}>Account Size ($)</label>
                 <input
                   type="number"
-                  value={accountSize}
-                  onChange={e => setAccountSize(Number(e.target.value))}
+                  value={accountSizeStr}
+                  onChange={e => setAccountSizeStr(e.target.value)}
                   style={{
                     width: '100%', background: '#1a1a2e', border: '1px solid #1e1e2e', borderRadius: 6,
                     padding: '8px 10px', fontSize: 13, color: '#f1f5f9', outline: 'none', boxSizing: 'border-box',
@@ -349,9 +404,9 @@ export default function TradeAnalyzer() {
                 <label style={{ fontSize: 11, color: '#64748b', display: 'block', marginBottom: 4 }}>Risk % per Trade</label>
                 <input
                   type="number"
-                  value={riskPct}
+                  value={riskPctStr}
                   step={0.5}
-                  onChange={e => setRiskPct(Number(e.target.value))}
+                  onChange={e => setRiskPctStr(e.target.value)}
                   style={{
                     width: '100%', background: '#1a1a2e', border: '1px solid #1e1e2e', borderRadius: 6,
                     padding: '8px 10px', fontSize: 13, color: '#f1f5f9', outline: 'none', boxSizing: 'border-box',

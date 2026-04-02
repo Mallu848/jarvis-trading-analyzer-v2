@@ -1,4 +1,5 @@
 import https from 'https'
+import { rateLimit } from './_rateLimit.mjs'
 
 function yahooFetch(url) {
   return new Promise((resolve, reject) => {
@@ -15,7 +16,9 @@ function yahooFetch(url) {
   })
 }
 
-export const handler = async () => {
+export const handler = async (event) => {
+  const blocked = rateLimit(event)
+  if (blocked) return blocked
   const symbols = ['SPY', 'QQQ', 'DIA', 'BTC-USD', 'ETH-USD', '^VIX']
   const labels  = ['S&P 500', 'NASDAQ', 'DOW', 'Bitcoin', 'Ethereum', 'VIX']
   try {

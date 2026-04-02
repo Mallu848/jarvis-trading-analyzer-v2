@@ -3,6 +3,7 @@ import toast from 'react-hot-toast'
 import { Shield, Bell, Database, Info } from 'lucide-react'
 import Card, { CardHeader } from '../components/ui/Card'
 import { useSettingsStore, useWatchlistStore } from '../store/index'
+import { sanitizeWatchlist, clampNumber } from '../utils/sanitize'
 
 export default function Settings() {
   const settings = useSettingsStore()
@@ -78,7 +79,7 @@ export default function Settings() {
             <input
               type="number"
               value={accountSize}
-              onChange={e => setAccountSize(Number(e.target.value))}
+              onChange={e => setAccountSize(clampNumber(Number(e.target.value), 0, 10_000_000))}
               style={inputStyle}
             />
             <div style={{ fontSize: 10, color: '#64748b', marginTop: 4 }}>
@@ -95,7 +96,7 @@ export default function Settings() {
               step={0.5}
               min={0.5}
               max={10}
-              onChange={e => setRiskPct(Number(e.target.value))}
+              onChange={e => setRiskPct(clampNumber(Number(e.target.value), 0.1, 100))}
               style={inputStyle}
             />
             <div style={{ fontSize: 10, color: '#64748b', marginTop: 4 }}>
@@ -130,7 +131,7 @@ export default function Settings() {
           </label>
           <textarea
             value={watchlistText}
-            onChange={e => setWatchlistText(e.target.value)}
+            onChange={e => setWatchlistText(sanitizeWatchlist(e.target.value))}
             rows={3}
             style={{ ...inputStyle, resize: 'vertical', fontFamily: 'JetBrains Mono, monospace', fontSize: 12 }}
             placeholder="TSLA, AAPL, NVDA, SPY, QQQ"
