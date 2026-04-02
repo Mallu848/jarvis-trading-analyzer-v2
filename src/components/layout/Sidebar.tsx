@@ -104,7 +104,7 @@ function SidebarContents({ onClose, mobile = false }: { onClose: () => void; mob
               fontWeight: 800, fontSize: 22, color: '#3b82f6',
               fontFamily: 'Georgia, serif', lineHeight: 1,
               textShadow: '0 0 8px rgba(59,130,246,0.6)',
-            }}>J</span>
+            }}>R</span>
           </div>
           <div>
             <div style={{ fontWeight: 700, fontSize: 15, color: '#f1f5f9', letterSpacing: '0.05em' }}>JARVIS</div>
