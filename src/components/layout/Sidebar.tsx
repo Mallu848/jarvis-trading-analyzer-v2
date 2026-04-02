@@ -96,14 +96,14 @@ function SidebarContents({ onClose, mobile = false }: { onClose: () => void; mob
         <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
           <div style={{
             width: 38, height: 38, borderRadius: 9,
-            background: '#0d0303',
+            background: '#030a1a',
             display: 'flex', alignItems: 'center', justifyContent: 'center',
-            boxShadow: '0 0 0 1px rgba(239,68,68,0.55), 0 0 14px rgba(239,68,68,0.4), 0 0 28px rgba(239,68,68,0.12)',
+            boxShadow: '0 0 0 1px rgba(59,130,246,0.55), 0 0 14px rgba(59,130,246,0.4), 0 0 28px rgba(59,130,246,0.12)',
           }}>
             <span style={{
-              fontWeight: 800, fontSize: 22, color: '#ef4444',
+              fontWeight: 800, fontSize: 22, color: '#3b82f6',
               fontFamily: 'Georgia, serif', lineHeight: 1,
-              textShadow: '0 0 8px rgba(239,68,68,0.6)',
+              textShadow: '0 0 8px rgba(59,130,246,0.6)',
             }}>J</span>
           </div>
           <div>
