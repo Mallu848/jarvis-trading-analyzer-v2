@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls -la \"C:\\\\Users\\\\rohan\\\\OneDrive\\\\Jarvis\\\\Investing\\\\Options & Stocks\\\\trading-analyzer-v2\")",
+      "Bash(find \"C:\\\\Users\\\\rohan\\\\OneDrive\\\\Jarvis\\\\Investing\\\\Options & Stocks\\\\trading-analyzer-v2\" -type f \\\\\\( -name \"*.svg\" -o -name \"*.png\" -o -name \"*.ico\" \\\\\\) ! -path \"*/node_modules/*\" ! -path \"*/.git/*\")",
+      "Bash(xargs ls:*)",
+      "Bash(wc -c \"C:\\\\Users\\\\rohan\\\\OneDrive\\\\Jarvis\\\\Investing\\\\Options & Stocks\\\\trading-analyzer-v2\\\\public\\\\favicon.svg\" \"C:\\\\Users\\\\rohan\\\\OneDrive\\\\Jarvis\\\\Investing\\\\Options & Stocks\\\\trading-analyzer-v2\\\\public\\\\icons.svg\" \"C:\\\\Users\\\\rohan\\\\OneDrive\\\\Jarvis\\\\Investing\\\\Options & Stocks\\\\trading-analyzer-v2\\\\src\\\\assets\\\\hero.png\")",
+      "Bash(find \"C:\\\\Users\\\\rohan\\\\OneDrive\\\\Jarvis\\\\Investing\\\\Options & Stocks\\\\trading-analyzer-v2\" -type f ! -path \"*/node_modules/*\" ! -path \"*/.git/*\" ! -path \"*/dist/*\")",
+      "Bash(find \"C:\\\\Users\\\\rohan\\\\OneDrive\\\\Jarvis\\\\Investing\\\\Options & Stocks\\\\trading-analyzer-v2\" -not -path '*/node_modules*' -not -path '*/.git/*' -not -path '*/dist/*' -not -path '*/.claude/worktrees/*' -type f)",
+      "Bash(ls -lh \"C:\\\\Users\\\\rohan\\\\OneDrive\\\\Jarvis\\\\Investing\\\\Options & Stocks\\\\trading-analyzer-v2\\\\src\\\\assets\"\")",
+      "Bash(ls -lh \"/c/Users/rohan/OneDrive/Jarvis/Investing/Options & Stocks/trading-analyzer-v2/src/assets/\")",
+      "Bash(ls -lh \"/c/Users/rohan/OneDrive/Jarvis/Investing/Options & Stocks/trading-analyzer-v2/public/\")",
+      "Bash(ls \"C:\\\\Users\\\\rohan\\\\OneDrive\\\\Jarvis\\\\Investing\\\\Options & Stocks\\\\trading-analyzer-v2\\\\.claude\\\\worktrees\\\\great-perlman\")",
+      "Bash(npm run:*)",
+      "Bash(ls \"C:\\\\Users\\\\rohan\\\\OneDrive\\\\Jarvis\\\\Investing\\\\Options & Stocks\\\\trading-analyzer-v2\\\\node_modules\\\\.bin\\\\vite\")",
+      "Bash(cp \"C:\\\\Users\\\\rohan\\\\OneDrive\\\\Jarvis\\\\Investing\\\\Options & Stocks\\\\trading-analyzer-v2\\\\.claude\\\\worktrees\\\\great-perlman\\\\public\\\\favicon.svg\" \"C:\\\\Users\\\\rohan\\\\OneDrive\\\\Jarvis\\\\Investing\\\\Options & Stocks\\\\trading-analyzer-v2\\\\public\\\\favicon.svg\")",
+      "Bash(cp \"C:\\\\Users\\\\rohan\\\\OneDrive\\\\Jarvis\\\\Investing\\\\Options & Stocks\\\\trading-analyzer-v2\\\\.claude\\\\worktrees\\\\great-perlman\\\\src\\\\components\\\\layout\\\\Sidebar.tsx\" \"C:\\\\Users\\\\rohan\\\\OneDrive\\\\Jarvis\\\\Investing\\\\Options & Stocks\\\\trading-analyzer-v2\\\\src\\\\components\\\\layout\\\\Sidebar.tsx\")",
+      "Bash(netlify deploy:*)",
+      "Bash(npx netlify-cli:*)"
+    ]
+  }
+}

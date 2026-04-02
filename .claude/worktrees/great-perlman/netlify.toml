@@ -1,0 +1,56 @@
+[build]
+  command   = "npm run build"
+  publish   = "dist"
+  functions = "netlify/functions"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# ── API redirects to serverless functions ──────────────────────────────────────
+
+[[redirects]]
+  from   = "/api/analyze/*"
+  to     = "/.netlify/functions/analyze"
+  status = 200
+
+[[redirects]]
+  from   = "/api/options/*"
+  to     = "/.netlify/functions/options"
+  status = 200
+
+[[redirects]]
+  from   = "/api/crypto/*"
+  to     = "/.netlify/functions/crypto"
+  status = 200
+
+[[redirects]]
+  from   = "/api/quotes"
+  to     = "/.netlify/functions/quotes"
+  status = 200
+
+[[redirects]]
+  from   = "/api/search"
+  to     = "/.netlify/functions/search"
+  status = 200
+
+[[redirects]]
+  from   = "/api/market-overview"
+  to     = "/.netlify/functions/market-overview"
+  status = 200
+
+[[redirects]]
+  from   = "/api/fng"
+  to     = "/.netlify/functions/fng"
+  status = 200
+
+[[redirects]]
+  from   = "/api/health"
+  to     = "/.netlify/functions/health"
+  status = 200
+
+# ── SPA fallback ───────────────────────────────────────────────────────────────
+
+[[redirects]]
+  from   = "/*"
+  to     = "/index.html"
+  status = 200

@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none">
+  <!-- Dark base -->
+  <rect width="32" height="32" rx="7" fill="#080d14"/>
+  <!-- Subtle green border -->
+  <rect width="32" height="32" rx="7" fill="none" stroke="#22c55e" stroke-width="0.7" stroke-opacity="0.3"/>
+
+  <!-- Candle 1 — left, short -->
+  <line x1="7" y1="21" x2="7" y2="23" stroke="#22c55e" stroke-width="1.3" stroke-linecap="round"/>
+  <rect x="4.5" y="23" width="5" height="5" rx="0.7" fill="#22c55e"/>
+  <line x1="7" y1="28" x2="7" y2="30" stroke="#22c55e" stroke-width="1.3" stroke-linecap="round"/>
+
+  <!-- Candle 2 — center, medium -->
+  <line x1="16" y1="14" x2="16" y2="16" stroke="#22c55e" stroke-width="1.3" stroke-linecap="round"/>
+  <rect x="13.5" y="16" width="5" height="8" rx="0.7" fill="#22c55e"/>
+  <line x1="16" y1="24" x2="16" y2="27" stroke="#22c55e" stroke-width="1.3" stroke-linecap="round"/>
+
+  <!-- Candle 3 — right, tallest -->
+  <line x1="25" y1="5" x2="25" y2="8" stroke="#22c55e" stroke-width="1.3" stroke-linecap="round"/>
+  <rect x="22.5" y="8" width="5" height="10" rx="0.7" fill="#22c55e"/>
+  <line x1="25" y1="18" x2="25" y2="22" stroke="#22c55e" stroke-width="1.3" stroke-linecap="round"/>
+
+  <!-- Rising trend line through candle tops -->
+  <polyline points="7,23 16,16 25,8" stroke="#4ade80" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke-dasharray="2,1.5" opacity="0.8"/>
+
+  <!-- Arrowhead at trend tip -->
+  <path d="M22.5,9.5 L25,5.5 L27.5,9.5" stroke="#4ade80" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.9"/>
+</svg>
