@@ -25,7 +25,7 @@ createRoot(document.getElementById('root')!).render(
           style: {
             background: '#ffffff',
             color: '#1a1a2e',
-            border: '1px solid #dde2e8',
+            border: '1px solid #e2dfd8',
             fontFamily: 'Inter, sans-serif',
             fontSize: '14px',
           },

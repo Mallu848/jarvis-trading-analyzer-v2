@@ -84,7 +84,7 @@ export default function OptionsAnalyzer() {
   const callout = hasInputs ? getCallout(optType, sp, strike, dte, bsResult.probabilityOfProfit, bsResult.price) : null
 
   const inputStyle = {
-    width: '100%', background: '#e8ecf0', border: '1px solid #dde2e8', borderRadius: 6,
+    width: '100%', background: '#edecea', border: '1px solid #e2dfd8', borderRadius: 6,
     padding: '10px 12px', fontSize: 15, color: '#1a1a2e', outline: 'none',
     boxSizing: 'border-box' as const,
   }
@@ -110,7 +110,7 @@ export default function OptionsAnalyzer() {
               style={{
                 flex: 1, padding: '12px 0', borderRadius: 8, border: 'none', cursor: 'pointer',
                 fontSize: 14, fontWeight: 700,
-                background: optType === 'call' ? '#22c55e' : '#e8ecf0',
+                background: optType === 'call' ? '#22c55e' : '#edecea',
                 color: optType === 'call' ? '#fff' : '#475569',
                 transition: 'background 0.15s',
               }}
@@ -122,7 +122,7 @@ export default function OptionsAnalyzer() {
               style={{
                 flex: 1, padding: '12px 0', borderRadius: 8, border: 'none', cursor: 'pointer',
                 fontSize: 14, fontWeight: 700,
-                background: optType === 'put' ? '#ef4444' : '#e8ecf0',
+                background: optType === 'put' ? '#ef4444' : '#edecea',
                 color: optType === 'put' ? '#fff' : '#475569',
                 transition: 'background 0.15s',
               }}
@@ -215,7 +215,7 @@ export default function OptionsAnalyzer() {
               },
             ].map(({ label, sub, value, color }) => (
               <div key={label} style={{
-                background: '#ffffff', border: '1px solid #dde2e8', borderRadius: 8, padding: '16px',
+                background: '#ffffff', border: '1px solid #e2dfd8', borderRadius: 8, padding: '16px',
               }}>
                 <div style={{ fontSize: 11, color: '#64748b', marginBottom: 4 }}>{label}</div>
                 <div style={{ fontSize: 26, fontWeight: 800, color, fontFamily: 'JetBrains Mono, monospace', marginBottom: 4 }}>
@@ -234,11 +234,11 @@ export default function OptionsAnalyzer() {
             />
             <ResponsiveContainer width="100%" height={200}>
               <LineChart data={pnlData} margin={{ top: 4, right: 12, bottom: 4, left: 0 }}>
-                <CartesianGrid strokeDasharray="3 3" stroke="#dde2e8" />
+                <CartesianGrid strokeDasharray="3 3" stroke="#e2dfd8" />
                 <XAxis dataKey="price" tick={{ fill: '#64748b', fontSize: 10 }} tickFormatter={v => `$${v}`} />
                 <YAxis tick={{ fill: '#64748b', fontSize: 10 }} tickFormatter={v => `$${v}`} />
                 <Tooltip
-                  contentStyle={{ background: '#ffffff', border: '1px solid #dde2e8', borderRadius: 6, fontSize: 12 }}
+                  contentStyle={{ background: '#ffffff', border: '1px solid #e2dfd8', borderRadius: 6, fontSize: 12 }}
                   formatter={(v: number) => [`$${v.toFixed(2)}`, 'Profit / Loss']}
                   labelFormatter={l => `If stock is at $${l}`}
                 />

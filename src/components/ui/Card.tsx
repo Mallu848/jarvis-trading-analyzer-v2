@@ -14,7 +14,7 @@ export default function Card({ children, style, hover = false, padding = 16 }: C
       className={hover ? 'card-hover' : ''}
       style={{
         backgroundColor: '#ffffff',
-        border: '1px solid #dde2e8',
+        border: '1px solid #e2dfd8',
         borderRadius: 8,
         padding,
         ...style,

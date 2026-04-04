@@ -57,14 +57,14 @@ export default function Settings() {
   }
 
   const inputStyle = {
-    width: '100%', background: '#1a1a2e', border: '1px solid #1e1e2e', borderRadius: 6,
-    padding: '9px 12px', fontSize: 13, color: '#f1f5f9', outline: 'none', boxSizing: 'border-box' as const,
+    width: '100%', background: '#edecea', border: '1px solid #e2dfd8', borderRadius: 6,
+    padding: '9px 12px', fontSize: 13, color: '#1a1a2e', outline: 'none', boxSizing: 'border-box' as const,
   }
 
   return (
     <div style={{ padding: '24px 24px 40px', maxWidth: 720 }}>
       <div style={{ paddingBottom: 24 }}>
-        <h1 style={{ fontSize: 22, fontWeight: 700, color: '#f1f5f9', margin: 0 }}>Settings</h1>
+        <h1 style={{ fontSize: 22, fontWeight: 700, color: '#1a1a2e', margin: 0 }}>Settings</h1>
         <div style={{ fontSize: 13, color: '#64748b', marginTop: 4 }}>Configure JARVIS V2 to your preferences</div>
       </div>
 
@@ -115,7 +115,7 @@ export default function Settings() {
             Save
           </button>
           <div style={{ fontSize: 12, color: '#64748b' }}>
-            Max risk per trade: <strong style={{ color: '#f1f5f9' }}>
+            Max risk per trade: <strong style={{ color: '#1a1a2e' }}>
               ${(accountSize * riskPct / 100).toFixed(2)}
             </strong>
           </div>
@@ -153,7 +153,7 @@ export default function Settings() {
         <CardHeader title="Notifications" action={<Bell size={14} color="#64748b" />} />
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 14 }}>
           <div>
-            <div style={{ fontSize: 13, color: '#f1f5f9', fontWeight: 600 }}>Browser Notifications</div>
+            <div style={{ fontSize: 13, color: '#1a1a2e', fontWeight: 600 }}>Browser Notifications</div>
             <div style={{ fontSize: 11, color: '#64748b', marginTop: 2 }}>
               Receive alerts when price conditions are triggered
             </div>
@@ -167,7 +167,7 @@ export default function Settings() {
             }}
             style={{
               width: 44, height: 24, borderRadius: 12, border: 'none', cursor: 'pointer',
-              background: notifEnabled ? '#22c55e' : '#1e1e2e',
+              background: notifEnabled ? '#22c55e' : '#e2dfd8',
               position: 'relative', transition: 'background 0.2s',
             }}
           >
@@ -193,16 +193,16 @@ export default function Settings() {
       <Card style={{ marginBottom: 20 }}>
         <CardHeader title="About JARVIS V2" action={<Info size={14} color="#64748b" />} />
         <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', paddingBottom: 10, borderBottom: '1px solid #1e1e2e' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', paddingBottom: 10, borderBottom: '1px solid #e2dfd8' }}>
             <span style={{ fontSize: 12, color: '#64748b' }}>Version</span>
-            <span style={{ fontSize: 12, color: '#f1f5f9', fontFamily: 'JetBrains Mono, monospace' }}>2.0.0</span>
+            <span style={{ fontSize: 12, color: '#1a1a2e', fontFamily: 'JetBrains Mono, monospace' }}>2.0.0</span>
           </div>
-          <div style={{ paddingBottom: 10, borderBottom: '1px solid #1e1e2e' }}>
+          <div style={{ paddingBottom: 10, borderBottom: '1px solid #e2dfd8' }}>
             <div style={{ fontSize: 12, color: '#64748b', marginBottom: 6 }}>Data Sources</div>
             <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
               {['Yahoo Finance', 'CoinGecko', 'Alternative.me (Fear & Greed)'].map(s => (
                 <span key={s} style={{
-                  background: '#1a1a2e', border: '1px solid #1e1e2e', borderRadius: 4,
+                  background: '#edecea', border: '1px solid #e2dfd8', borderRadius: 4,
                   padding: '3px 8px', fontSize: 11, color: '#64748b',
                 }}>
                   {s}
@@ -227,7 +227,7 @@ export default function Settings() {
         <CardHeader title="Danger Zone" action={<Database size={14} color="#ef4444" />} />
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
           <div>
-            <div style={{ fontSize: 13, color: '#f1f5f9', fontWeight: 600 }}>Clear All Data</div>
+            <div style={{ fontSize: 13, color: '#1a1a2e', fontWeight: 600 }}>Clear All Data</div>
             <div style={{ fontSize: 11, color: '#64748b', marginTop: 2 }}>
               Permanently deletes all watchlist, portfolio, journal, alert, and settings data from localStorage.
             </div>

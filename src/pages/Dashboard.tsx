@@ -115,7 +115,7 @@ export default function Dashboard() {
                     onKeyDown={e => e.key === 'Enter' && handleAddTicker()}
                     placeholder="Add ticker…"
                     style={{
-                      background: '#e8ecf0', border: '1px solid #dde2e8', borderRadius: 6,
+                      background: '#edecea', border: '1px solid #e2dfd8', borderRadius: 6,
                       padding: '5px 10px', fontSize: 12, color: '#1a1a2e', width: 110,
                       outline: 'none',
                     }}
@@ -144,7 +144,7 @@ export default function Dashboard() {
                 {watchlist.tickers.map(ticker => (
                   <div key={ticker} style={{
                     display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-                    padding: '8px 10px', borderRadius: 6, background: '#e8ecf0',
+                    padding: '8px 10px', borderRadius: 6, background: '#edecea',
                   }}>
                     <span style={{ fontSize: 13, fontWeight: 700, color: '#1a1a2e', fontFamily: 'JetBrains Mono, monospace' }}>
                       {ticker}
@@ -188,7 +188,7 @@ export default function Dashboard() {
                     onClick={() => navigate(`/analyze/${item.ticker}`)}
                     style={{
                       display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-                      padding: '8px 10px', borderRadius: 6, background: '#e8ecf0', cursor: 'pointer',
+                      padding: '8px 10px', borderRadius: 6, background: '#edecea', cursor: 'pointer',
                     }}
                   >
                     <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
@@ -225,7 +225,7 @@ export default function Dashboard() {
                 <div style={{ fontSize: 14, fontWeight: 700, color: fngInfo.color, marginTop: 8 }}>
                   {fngInfo.label}
                 </div>
-                <div style={{ marginTop: 12, background: '#e8ecf0', borderRadius: 6, height: 8, overflow: 'hidden' }}>
+                <div style={{ marginTop: 12, background: '#edecea', borderRadius: 6, height: 8, overflow: 'hidden' }}>
                   <div style={{
                     width: `${fng.value}%`, height: '100%',
                     background: `linear-gradient(90deg, #ef4444, #f59e0b, #22c55e)`,

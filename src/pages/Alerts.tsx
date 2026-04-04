@@ -76,14 +76,14 @@ export default function Alerts() {
   }
 
   const inputStyle = {
-    width: '100%', background: '#1a1a2e', border: '1px solid #1e1e2e', borderRadius: 6,
-    padding: '8px 10px', fontSize: 12, color: '#f1f5f9', outline: 'none', boxSizing: 'border-box' as const,
+    width: '100%', background: '#edecea', border: '1px solid #e2dfd8', borderRadius: 6,
+    padding: '8px 10px', fontSize: 12, color: '#1a1a2e', outline: 'none', boxSizing: 'border-box' as const,
   }
 
   return (
     <div style={{ padding: '24px 24px 40px' }}>
       <div style={{ paddingBottom: 24 }}>
-        <h1 style={{ fontSize: 22, fontWeight: 700, color: '#f1f5f9', margin: 0 }}>Price Alerts</h1>
+        <h1 style={{ fontSize: 22, fontWeight: 700, color: '#1a1a2e', margin: 0 }}>Price Alerts</h1>
         <div style={{ fontSize: 13, color: '#64748b', marginTop: 4 }}>Set price and condition alerts for any ticker</div>
       </div>
 
@@ -194,7 +194,7 @@ export default function Alerts() {
           <div style={{ overflowX: 'auto' }}>
             <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 12 }}>
               <thead>
-                <tr style={{ borderBottom: '1px solid #1e1e2e' }}>
+                <tr style={{ borderBottom: '1px solid #e2dfd8' }}>
                   {['Ticker', 'Condition', 'Target', 'Status', 'Note', 'Created', ''].map(h => (
                     <th key={h} style={{ padding: '7px 8px', textAlign: h === 'Ticker' ? 'left' : 'right', color: '#64748b', fontWeight: 600, fontSize: 11 }}>{h}</th>
                   ))}
@@ -202,10 +202,10 @@ export default function Alerts() {
               </thead>
               <tbody>
                 {store.alerts.map(alert => (
-                  <tr key={alert.id} style={{ borderBottom: '1px solid #1e1e2e' }}>
-                    <td style={{ padding: '8px', color: '#f1f5f9', fontWeight: 700, fontFamily: 'JetBrains Mono, monospace' }}>{alert.ticker}</td>
+                  <tr key={alert.id} style={{ borderBottom: '1px solid #e2dfd8' }}>
+                    <td style={{ padding: '8px', color: '#1a1a2e', fontWeight: 700, fontFamily: 'JetBrains Mono, monospace' }}>{alert.ticker}</td>
                     <td style={{ padding: '8px', textAlign: 'right', color: '#64748b' }}>{CONDITION_LABELS[alert.condition]}</td>
-                    <td style={{ padding: '8px', textAlign: 'right', color: '#f1f5f9', fontFamily: 'JetBrains Mono, monospace' }}>{alert.targetValue}</td>
+                    <td style={{ padding: '8px', textAlign: 'right', color: '#1a1a2e', fontFamily: 'JetBrains Mono, monospace' }}>{alert.targetValue}</td>
                     <td style={{ padding: '8px', textAlign: 'right' }}>
                       <Badge variant={STATUS_VARIANTS[alert.status]} size="xs">{alert.status}</Badge>
                     </td>
@@ -253,7 +253,7 @@ export default function Alerts() {
           <div style={{ overflowX: 'auto' }}>
             <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 12 }}>
               <thead>
-                <tr style={{ borderBottom: '1px solid #1e1e2e' }}>
+                <tr style={{ borderBottom: '1px solid #e2dfd8' }}>
                   {['Ticker', 'Condition', 'Target', 'Trigger Price', 'Triggered At'].map(h => (
                     <th key={h} style={{ padding: '7px 8px', textAlign: h === 'Ticker' ? 'left' : 'right', color: '#64748b', fontWeight: 600, fontSize: 11 }}>{h}</th>
                   ))}
@@ -261,10 +261,10 @@ export default function Alerts() {
               </thead>
               <tbody>
                 {store.history.slice(0, 50).map(h => (
-                  <tr key={h.id} style={{ borderBottom: '1px solid #1e1e2e' }}>
-                    <td style={{ padding: '8px', color: '#f1f5f9', fontWeight: 700, fontFamily: 'JetBrains Mono, monospace' }}>{h.ticker}</td>
+                  <tr key={h.id} style={{ borderBottom: '1px solid #e2dfd8' }}>
+                    <td style={{ padding: '8px', color: '#1a1a2e', fontWeight: 700, fontFamily: 'JetBrains Mono, monospace' }}>{h.ticker}</td>
                     <td style={{ padding: '8px', textAlign: 'right', color: '#64748b' }}>{CONDITION_LABELS[h.condition]}</td>
-                    <td style={{ padding: '8px', textAlign: 'right', color: '#f1f5f9', fontFamily: 'JetBrains Mono, monospace' }}>{h.targetValue}</td>
+                    <td style={{ padding: '8px', textAlign: 'right', color: '#1a1a2e', fontFamily: 'JetBrains Mono, monospace' }}>{h.targetValue}</td>
                     <td style={{ padding: '8px', textAlign: 'right', color: '#22c55e', fontFamily: 'JetBrains Mono, monospace' }}>{h.triggerPrice.toFixed(2)}</td>
                     <td style={{ padding: '8px', textAlign: 'right', color: '#64748b', fontSize: 11 }}>
                       {format(new Date(h.triggeredAt), 'MMM d, h:mm a')}

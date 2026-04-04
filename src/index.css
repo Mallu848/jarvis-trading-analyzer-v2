@@ -1,10 +1,10 @@
 @import "tailwindcss";
 
 @theme {
-  --color-bg-primary: #f0f2f5;
+  --color-bg-primary: #f5f4f0;
   --color-bg-card: #ffffff;
-  --color-bg-elevated: #e8ecf0;
-  --color-border: #dde2e8;
+  --color-bg-elevated: #edecea;
+  --color-border: #e2dfd8;
   --color-accent: #3b82f6;
   --color-green: #22c55e;
   --color-red: #ef4444;
@@ -18,7 +18,7 @@
 *, *::before, *::after { box-sizing: border-box; }
 
 body {
-  background-color: #f0f2f5;
+  background-color: #f5f4f0;
   color: #1a1a2e;
   font-family: 'Inter', system-ui, sans-serif;
   margin: 0;
@@ -30,8 +30,8 @@ body {
 
 /* Custom scrollbar */
 ::-webkit-scrollbar { width: 4px; height: 4px; }
-::-webkit-scrollbar-track { background: #f0f2f5; }
-::-webkit-scrollbar-thumb { background: #dde2e8; border-radius: 2px; }
+::-webkit-scrollbar-track { background: #f5f4f0; }
+::-webkit-scrollbar-thumb { background: #e2dfd8; border-radius: 2px; }
 ::-webkit-scrollbar-thumb:hover { background: #3b82f6; }
 
 /* Skeleton animation */
@@ -41,7 +41,7 @@ body {
 }
 
 .skeleton {
-  background: linear-gradient(90deg, #e8ecf0 25%, #e4e8ed 50%, #e8ecf0 75%);
+  background: linear-gradient(90deg, #f0efe9 25%, #edecea 50%, #f0efe9 75%);
   background-size: 200% 100%;
   animation: shimmer 1.5s infinite;
 }

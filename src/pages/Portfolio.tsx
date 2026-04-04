@@ -116,21 +116,21 @@ export default function Portfolio() {
   ).map(([name, value]) => ({ name, value: parseFloat(value.toFixed(2)) }))
 
   const inputStyle = {
-    width: '100%', background: '#1a1a2e', border: '1px solid #1e1e2e', borderRadius: 6,
-    padding: '7px 10px', fontSize: 12, color: '#f1f5f9', outline: 'none', boxSizing: 'border-box' as const,
+    width: '100%', background: '#edecea', border: '1px solid #e2dfd8', borderRadius: 6,
+    padding: '7px 10px', fontSize: 12, color: '#1a1a2e', outline: 'none', boxSizing: 'border-box' as const,
   }
 
   return (
     <div style={{ padding: '24px 24px 40px' }}>
       <div style={{ paddingBottom: 24 }}>
-        <h1 style={{ fontSize: 22, fontWeight: 700, color: '#f1f5f9', margin: 0 }}>Portfolio</h1>
+        <h1 style={{ fontSize: 22, fontWeight: 700, color: '#1a1a2e', margin: 0 }}>Portfolio</h1>
         <div style={{ fontSize: 13, color: '#64748b', marginTop: 4 }}>Track your positions and performance</div>
       </div>
 
       {/* Summary Bar */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(160px, 1fr))', gap: 12, marginBottom: 20 }}>
         {[
-          { label: 'Total Value', value: fmt.currency(totalValue), color: '#f1f5f9' },
+          { label: 'Total Value', value: fmt.currency(totalValue), color: '#1a1a2e' },
           { label: 'Total Cost', value: fmt.currency(totalCost), color: '#64748b' },
           { label: 'Total P&L', value: fmt.pnl(totalPnL), color: pnlColor(totalPnL) },
           { label: 'P&L %', value: fmt.pct(totalPnLPct), color: pnlColor(totalPnLPct) },
@@ -199,11 +199,11 @@ export default function Portfolio() {
             <div
               onClick={() => fileRef.current?.click()}
               style={{
-                border: '2px dashed #1e1e2e', borderRadius: 8, padding: '20px', textAlign: 'center',
+                border: '2px dashed #e2dfd8', borderRadius: 8, padding: '20px', textAlign: 'center',
                 cursor: 'pointer', color: '#64748b', fontSize: 12,
               }}
               onMouseEnter={e => (e.currentTarget.style.borderColor = '#3b82f6')}
-              onMouseLeave={e => (e.currentTarget.style.borderColor = '#1e1e2e')}
+              onMouseLeave={e => (e.currentTarget.style.borderColor = '#e2dfd8')}
             >
               <Upload size={20} style={{ marginBottom: 6, opacity: 0.5 }} />
               <div>Click to upload Robinhood CSV</div>
@@ -223,7 +223,7 @@ export default function Portfolio() {
                     ))}
                   </Pie>
                   <Tooltip
-                    contentStyle={{ background: '#12121a', border: '1px solid #1e1e2e', borderRadius: 6, fontSize: 11 }}
+                    contentStyle={{ background: '#ffffff', border: '1px solid #e2dfd8', borderRadius: 6, fontSize: 11 }}
                     formatter={(v: number) => [fmt.currency(v), '']}
                   />
                   <Legend iconSize={8} wrapperStyle={{ fontSize: 11, color: '#64748b' }} />
@@ -246,7 +246,7 @@ export default function Portfolio() {
           <div style={{ overflowX: 'auto' }}>
             <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 12 }}>
               <thead>
-                <tr style={{ borderBottom: '1px solid #1e1e2e' }}>
+                <tr style={{ borderBottom: '1px solid #e2dfd8' }}>
                   {['Ticker', 'Type', 'Shares', 'Avg Cost', 'Current', 'Total Cost', 'P&L', '% of Portfolio', ''].map(h => (
                     <th key={h} style={{ padding: '8px', textAlign: h === '' ? 'center' : 'right', color: '#64748b', fontWeight: 600, fontSize: 11, whiteSpace: 'nowrap' }}
                       className={h === 'Ticker' ? '' : ''}>
@@ -265,12 +265,12 @@ export default function Portfolio() {
                   const portPct = totalValue > 0 && curValue !== null ? (curValue / totalValue) * 100 : null
 
                   return (
-                    <tr key={p.id} style={{ borderBottom: '1px solid #1e1e2e' }}>
-                      <td style={{ padding: '8px', color: '#f1f5f9', fontWeight: 700, fontFamily: 'JetBrains Mono, monospace' }}>{p.ticker}</td>
+                    <tr key={p.id} style={{ borderBottom: '1px solid #e2dfd8' }}>
+                      <td style={{ padding: '8px', color: '#1a1a2e', fontWeight: 700, fontFamily: 'JetBrains Mono, monospace' }}>{p.ticker}</td>
                       <td style={{ padding: '8px', textAlign: 'right' }}><Badge variant={ASSET_VARIANTS[p.assetType]} size="xs">{p.assetType}</Badge></td>
-                      <td style={{ padding: '8px', textAlign: 'right', color: '#f1f5f9', fontFamily: 'JetBrains Mono, monospace' }}>{p.shares}</td>
-                      <td style={{ padding: '8px', textAlign: 'right', color: '#f1f5f9', fontFamily: 'JetBrains Mono, monospace' }}>{fmt.price(p.avgCost)}</td>
-                      <td style={{ padding: '8px', textAlign: 'right', color: '#f1f5f9', fontFamily: 'JetBrains Mono, monospace' }}>
+                      <td style={{ padding: '8px', textAlign: 'right', color: '#1a1a2e', fontFamily: 'JetBrains Mono, monospace' }}>{p.shares}</td>
+                      <td style={{ padding: '8px', textAlign: 'right', color: '#1a1a2e', fontFamily: 'JetBrains Mono, monospace' }}>{fmt.price(p.avgCost)}</td>
+                      <td style={{ padding: '8px', textAlign: 'right', color: '#1a1a2e', fontFamily: 'JetBrains Mono, monospace' }}>
                         {curPrice ? fmt.price(curPrice) : '—'}
                       </td>
                       <td style={{ padding: '8px', textAlign: 'right', color: '#64748b', fontFamily: 'JetBrains Mono, monospace' }}>{fmt.currency(totalCostPos)}</td>

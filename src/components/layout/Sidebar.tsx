@@ -35,7 +35,7 @@ export default function Sidebar({ open, onClose }: SidebarProps) {
         width: 220,
         minHeight: '100vh',
         backgroundColor: '#ffffff',
-        borderRight: '1px solid #dde2e8',
+        borderRight: '1px solid #e2dfd8',
         display: 'flex',
         flexDirection: 'column',
         flexShrink: 0,
@@ -51,7 +51,7 @@ export default function Sidebar({ open, onClose }: SidebarProps) {
         top: 0, left: 0, bottom: 0,
         width: 240,
         backgroundColor: '#ffffff',
-        borderRight: '1px solid #dde2e8',
+        borderRight: '1px solid #e2dfd8',
         display: 'flex',
         flexDirection: 'column',
         zIndex: 50,
@@ -92,7 +92,7 @@ function SidebarContents({ onClose, mobile = false }: { onClose: () => void; mob
   return (
     <>
       {/* Logo */}
-      <div style={{ padding: mobile ? '20px 16px 16px 16px' : '20px 16px 16px', borderBottom: '1px solid #dde2e8' }}>
+      <div style={{ padding: mobile ? '20px 16px 16px 16px' : '20px 16px 16px', borderBottom: '1px solid #e2dfd8' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
           <div style={{
             width: 38, height: 38, borderRadius: 9,
@@ -132,7 +132,7 @@ function SidebarContents({ onClose, mobile = false }: { onClose: () => void; mob
               fontSize: 13,
               fontWeight: isActive ? 600 : 400,
               color: isActive ? '#1a1a2e' : '#64748b',
-              backgroundColor: isActive ? '#dde2e8' : 'transparent',
+              backgroundColor: isActive ? '#e2dfd8' : 'transparent',
               transition: 'all 0.15s',
             })}
             onMouseEnter={e => {
@@ -157,7 +157,7 @@ function SidebarContents({ onClose, mobile = false }: { onClose: () => void; mob
       </nav>
 
       {/* Footer */}
-      <div style={{ padding: '12px 16px', borderTop: '1px solid #dde2e8', fontSize: 10, color: '#64748b' }}>
+      <div style={{ padding: '12px 16px', borderTop: '1px solid #e2dfd8', fontSize: 10, color: '#64748b' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
           <span style={{ width: 6, height: 6, borderRadius: '50%', backgroundColor: '#22c55e', display: 'inline-block' }} />
           Data: Yahoo Finance · CoinGecko

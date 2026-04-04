@@ -118,14 +118,14 @@ export default function Journal() {
   }
 
   const inputStyle = {
-    width: '100%', background: '#1a1a2e', border: '1px solid #1e1e2e', borderRadius: 6,
-    padding: '7px 10px', fontSize: 12, color: '#f1f5f9', outline: 'none', boxSizing: 'border-box' as const,
+    width: '100%', background: '#edecea', border: '1px solid #e2dfd8', borderRadius: 6,
+    padding: '7px 10px', fontSize: 12, color: '#1a1a2e', outline: 'none', boxSizing: 'border-box' as const,
   }
 
   return (
     <div style={{ padding: '24px 24px 40px' }}>
       <div style={{ paddingBottom: 24 }}>
-        <h1 style={{ fontSize: 22, fontWeight: 700, color: '#f1f5f9', margin: 0 }}>Trade Journal</h1>
+        <h1 style={{ fontSize: 22, fontWeight: 700, color: '#1a1a2e', margin: 0 }}>Trade Journal</h1>
         <div style={{ fontSize: 13, color: '#64748b', marginTop: 4 }}>Log, track, and review your trades</div>
       </div>
 
@@ -133,7 +133,7 @@ export default function Journal() {
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(140px, 1fr))', gap: 12, marginBottom: 20 }}>
         {[
           { label: 'Win Rate', value: `${winRate.toFixed(1)}%`, color: winRate >= 50 ? '#22c55e' : '#ef4444' },
-          { label: 'Total Trades', value: String(closed.length), color: '#f1f5f9' },
+          { label: 'Total Trades', value: String(closed.length), color: '#1a1a2e' },
           { label: 'Avg Win', value: `$${avgWin.toFixed(2)}`, color: '#22c55e' },
           { label: 'Avg Loss', value: `$${avgLoss.toFixed(2)}`, color: '#ef4444' },
           { label: 'Profit Factor', value: profitFactor === Infinity ? '∞' : profitFactor.toFixed(2), color: profitFactor >= 1.5 ? '#22c55e' : '#f59e0b' },
@@ -164,7 +164,7 @@ export default function Journal() {
                     onClick={() => setForm(f => ({ ...f, direction: d }))}
                     style={{
                       flex: 1, padding: '7px 0', borderRadius: 6, border: 'none', cursor: 'pointer', fontSize: 12, fontWeight: 700,
-                      background: form.direction === d ? (d === 'long' ? '#22c55e' : '#ef4444') : '#1a1a2e',
+                      background: form.direction === d ? (d === 'long' ? '#22c55e' : '#ef4444') : '#edecea',
                       color: form.direction === d ? '#fff' : '#64748b',
                     }}
                   >
@@ -231,11 +231,11 @@ export default function Journal() {
           <CardHeader title="Equity Curve" subtitle="Cumulative P&L from closed trades" />
           <ResponsiveContainer width="100%" height={180}>
             <LineChart data={equityCurve} margin={{ top: 4, right: 12, bottom: 4, left: 0 }}>
-              <CartesianGrid strokeDasharray="3 3" stroke="#1e1e2e" />
+              <CartesianGrid strokeDasharray="3 3" stroke="#e2dfd8" />
               <XAxis dataKey="date" tick={{ fill: '#64748b', fontSize: 10 }} />
               <YAxis tick={{ fill: '#64748b', fontSize: 10 }} tickFormatter={v => `$${v}`} />
               <Tooltip
-                contentStyle={{ background: '#12121a', border: '1px solid #1e1e2e', borderRadius: 6, fontSize: 12 }}
+                contentStyle={{ background: '#ffffff', border: '1px solid #e2dfd8', borderRadius: 6, fontSize: 12 }}
                 formatter={(v: number) => [`$${v.toFixed(2)}`, 'Cumulative P&L']}
               />
               <Line type="monotone" dataKey="cumPnL" stroke="#3b82f6" dot={false} strokeWidth={2} />
@@ -272,7 +272,7 @@ export default function Journal() {
           <div style={{ overflowX: 'auto' }}>
             <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 12 }}>
               <thead>
-                <tr style={{ borderBottom: '1px solid #1e1e2e' }}>
+                <tr style={{ borderBottom: '1px solid #e2dfd8' }}>
                   {['Ticker', 'Dir', 'Setup', 'Entry', 'Exit', 'P&L', 'R', 'Hold', 'Date In', ''].map(h => (
                     <th key={h} style={{ padding: '7px 8px', textAlign: h === 'Ticker' ? 'left' : 'right', color: '#64748b', fontWeight: 600, fontSize: 11 }}>{h}</th>
                   ))}
@@ -280,14 +280,14 @@ export default function Journal() {
               </thead>
               <tbody>
                 {[...store.entries].sort((a, b) => new Date(b.dateIn).getTime() - new Date(a.dateIn).getTime()).map(e => (
-                  <tr key={e.id} style={{ borderBottom: '1px solid #1e1e2e' }}>
-                    <td style={{ padding: '7px 8px', color: '#f1f5f9', fontWeight: 700, fontFamily: 'JetBrains Mono, monospace' }}>{e.ticker}</td>
+                  <tr key={e.id} style={{ borderBottom: '1px solid #e2dfd8' }}>
+                    <td style={{ padding: '7px 8px', color: '#1a1a2e', fontWeight: 700, fontFamily: 'JetBrains Mono, monospace' }}>{e.ticker}</td>
                     <td style={{ padding: '7px 8px', textAlign: 'right' }}>
                       <Badge variant={e.direction === 'long' ? 'green' : 'red'} size="xs">{e.direction.toUpperCase()}</Badge>
                     </td>
                     <td style={{ padding: '7px 8px', textAlign: 'right', color: '#64748b' }}>{e.setupType}</td>
-                    <td style={{ padding: '7px 8px', textAlign: 'right', color: '#f1f5f9', fontFamily: 'JetBrains Mono, monospace' }}>${e.entryPrice.toFixed(2)}</td>
-                    <td style={{ padding: '7px 8px', textAlign: 'right', color: '#f1f5f9', fontFamily: 'JetBrains Mono, monospace' }}>
+                    <td style={{ padding: '7px 8px', textAlign: 'right', color: '#1a1a2e', fontFamily: 'JetBrains Mono, monospace' }}>${e.entryPrice.toFixed(2)}</td>
+                    <td style={{ padding: '7px 8px', textAlign: 'right', color: '#1a1a2e', fontFamily: 'JetBrains Mono, monospace' }}>
                       {e.exitPrice !== undefined ? `$${e.exitPrice.toFixed(2)}` : '—'}
                     </td>
                     <td style={{ padding: '7px 8px', textAlign: 'right', fontFamily: 'JetBrains Mono, monospace', color: e.pnl !== undefined ? pnlColor(e.pnl) : '#64748b' }}>

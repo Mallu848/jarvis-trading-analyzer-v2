@@ -6,7 +6,7 @@ export default function Layout() {
   const [open, setOpen] = useState(false)
 
   return (
-    <div style={{ display: 'flex', minHeight: '100vh', backgroundColor: '#f0f2f5' }}>
+    <div style={{ display: 'flex', minHeight: '100vh', backgroundColor: '#f5f4f0' }}>
       {/* Mobile overlay */}
       {open && (
         <div
@@ -25,7 +25,7 @@ export default function Layout() {
         {/* Mobile header */}
         <div className="mobile-header" style={{
           display: 'none', alignItems: 'center', gap: 12,
-          padding: '12px 16px', borderBottom: '1px solid #dde2e8',
+          padding: '12px 16px', borderBottom: '1px solid #e2dfd8',
           backgroundColor: '#ffffff', position: 'sticky', top: 0, zIndex: 30,
         }}>
           <button

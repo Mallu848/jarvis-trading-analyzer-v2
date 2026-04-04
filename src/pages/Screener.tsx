@@ -29,7 +29,7 @@ export default function Screener() {
   function handlePreset(name: string) {
     toast('Screener coming in next update — data fetching for 500 tickers requires rate limiting', {
       icon: '⚙️',
-      style: { background: '#ffffff', border: '1px solid #dde2e8', color: '#1a1a2e', fontSize: 13 },
+      style: { background: '#ffffff', border: '1px solid #e2dfd8', color: '#1a1a2e', fontSize: 13 },
       duration: 4000,
     })
   }
@@ -42,7 +42,7 @@ export default function Screener() {
   })
 
   const inputStyle = {
-    background: '#e8ecf0', border: '1px solid #dde2e8', borderRadius: 6,
+    background: '#edecea', border: '1px solid #e2dfd8', borderRadius: 6,
     padding: '7px 10px', fontSize: 12, color: '#1a1a2e', outline: 'none', width: '100%',
     boxSizing: 'border-box' as const,
   }
@@ -63,12 +63,12 @@ export default function Screener() {
               key={p.label}
               onClick={() => handlePreset(p.label)}
               style={{
-                background: '#e8ecf0', border: '1px solid #dde2e8', borderRadius: 8,
+                background: '#edecea', border: '1px solid #e2dfd8', borderRadius: 8,
                 padding: '16px', cursor: 'pointer', textAlign: 'left',
                 transition: 'border-color 0.15s',
               }}
               onMouseEnter={e => (e.currentTarget.style.borderColor = '#3b82f6')}
-              onMouseLeave={e => (e.currentTarget.style.borderColor = '#dde2e8')}
+              onMouseLeave={e => (e.currentTarget.style.borderColor = '#e2dfd8')}
             >
               <div style={{ fontSize: 20, marginBottom: 6 }}>{p.icon}</div>
               <div style={{ fontSize: 13, fontWeight: 700, color: '#1a1a2e', marginBottom: 4 }}>{p.label}</div>

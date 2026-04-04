@@ -34,7 +34,7 @@ export default function Crypto() {
   return (
     <div style={{ padding: '24px 24px 40px' }}>
       <div style={{ paddingBottom: 24 }}>
-        <h1 style={{ fontSize: 22, fontWeight: 700, color: '#f1f5f9', margin: 0 }}>Crypto Module</h1>
+        <h1 style={{ fontSize: 22, fontWeight: 700, color: '#1a1a2e', margin: 0 }}>Crypto Module</h1>
         <div style={{ fontSize: 13, color: '#64748b', marginTop: 4 }}>
           Crypto analysis powered by the JARVIS Trade Analyzer engine
         </div>
@@ -84,7 +84,7 @@ export default function Crypto() {
                     Analyze <ExternalLink size={10} />
                   </button>
                 </div>
-                <div style={{ fontSize: 16, fontWeight: 800, color: '#f1f5f9' }}>{coin.name}</div>
+                <div style={{ fontSize: 16, fontWeight: 800, color: '#1a1a2e' }}>{coin.name}</div>
                 <div style={{ fontSize: 12, color: coin.color, fontWeight: 600, marginTop: 2, fontFamily: 'JetBrains Mono, monospace' }}>
                   {coin.abbr}
                 </div>
@@ -112,7 +112,7 @@ export default function Crypto() {
                 <div style={{ fontSize: 14, fontWeight: 700, color: fngInfo.color, marginTop: 8 }}>
                   {fngInfo.label}
                 </div>
-                <div style={{ marginTop: 12, background: '#1a1a2e', borderRadius: 6, height: 8, overflow: 'hidden' }}>
+                <div style={{ marginTop: 12, background: '#edecea', borderRadius: 6, height: 8, overflow: 'hidden' }}>
                   <div style={{
                     width: `${fng.value}%`, height: '100%',
                     background: 'linear-gradient(90deg, #ef4444, #f59e0b, #22c55e)',
@@ -150,8 +150,8 @@ export default function Crypto() {
                   def: 'High volume on breakouts confirms institutional interest. Low volume = weak move.',
                 },
               ].map(({ term, def }) => (
-                <div key={term} style={{ paddingBottom: 10, borderBottom: '1px solid #1e1e2e' }}>
-                  <div style={{ fontSize: 12, fontWeight: 700, color: '#f1f5f9', marginBottom: 3 }}>{term}</div>
+                <div key={term} style={{ paddingBottom: 10, borderBottom: '1px solid #e2dfd8' }}>
+                  <div style={{ fontSize: 12, fontWeight: 700, color: '#1a1a2e', marginBottom: 3 }}>{term}</div>
                   <div style={{ fontSize: 11, color: '#64748b', lineHeight: 1.5 }}>{def}</div>
                 </div>
               ))}
@@ -164,10 +164,10 @@ export default function Crypto() {
       <Card style={{ background: '#f59e0b08', border: '1px solid #f59e0b18' }}>
         <CardHeader title="Your Crypto Positions" subtitle="From portfolio settings" />
         <div style={{ fontSize: 12, color: '#64748b', lineHeight: 1.7 }}>
-          Track your crypto holdings in the <strong style={{ color: '#f1f5f9' }}>Portfolio</strong> tab by setting asset type to "crypto".
+          Track your crypto holdings in the <strong style={{ color: '#1a1a2e' }}>Portfolio</strong> tab by setting asset type to "crypto".
           Prices are fetched live from Yahoo Finance. For XRP and GRT specifically, use tickers{' '}
-          <code style={{ background: '#1a1a2e', padding: '1px 5px', borderRadius: 3, color: '#f59e0b', fontSize: 11 }}>XRP-USD</code> and{' '}
-          <code style={{ background: '#1a1a2e', padding: '1px 5px', borderRadius: 3, color: '#f59e0b', fontSize: 11 }}>GRT-USD</code> in the Analyzer.
+          <code style={{ background: '#edecea', padding: '1px 5px', borderRadius: 3, color: '#f59e0b', fontSize: 11 }}>XRP-USD</code> and{' '}
+          <code style={{ background: '#edecea', padding: '1px 5px', borderRadius: 3, color: '#f59e0b', fontSize: 11 }}>GRT-USD</code> in the Analyzer.
         </div>
       </Card>
     </div>
