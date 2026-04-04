@@ -6,13 +6,13 @@ export default function Layout() {
   const [open, setOpen] = useState(false)
 
   return (
-    <div style={{ display: 'flex', minHeight: '100vh', backgroundColor: '#0a0a0f' }}>
+    <div style={{ display: 'flex', minHeight: '100vh', backgroundColor: '#f0f2f5' }}>
       {/* Mobile overlay */}
       {open && (
         <div
           onClick={() => setOpen(false)}
           style={{
-            position: 'fixed', inset: 0, backgroundColor: 'rgba(0,0,0,0.6)',
+            position: 'fixed', inset: 0, backgroundColor: 'rgba(0,0,0,0.4)',
             zIndex: 40, display: 'none',
           }}
           className="mobile-overlay"
@@ -25,14 +25,14 @@ export default function Layout() {
         {/* Mobile header */}
         <div className="mobile-header" style={{
           display: 'none', alignItems: 'center', gap: 12,
-          padding: '12px 16px', borderBottom: '1px solid #1e1e2e',
-          backgroundColor: '#12121a', position: 'sticky', top: 0, zIndex: 30,
+          padding: '12px 16px', borderBottom: '1px solid #dde2e8',
+          backgroundColor: '#ffffff', position: 'sticky', top: 0, zIndex: 30,
         }}>
           <button
             onClick={() => setOpen(true)}
             style={{
               background: 'none', border: 'none', cursor: 'pointer',
-              color: '#f1f5f9', padding: 4, display: 'flex', alignItems: 'center',
+              color: '#1a1a2e', padding: 4, display: 'flex', alignItems: 'center',
             }}
             aria-label="Open menu"
           >
@@ -54,7 +54,7 @@ export default function Layout() {
                 <circle cx="12" cy="12" r="0.7" fill="#93c5fd"/>
               </svg>
             </div>
-            <div style={{ fontWeight: 700, fontSize: 15, color: '#f1f5f9', letterSpacing: '0.05em' }}>JARVIS</div>
+            <div style={{ fontWeight: 700, fontSize: 15, color: '#1a1a2e', letterSpacing: '0.05em' }}>JARVIS</div>
           </div>
         </div>
 

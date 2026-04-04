@@ -29,7 +29,7 @@ export default function Screener() {
   function handlePreset(name: string) {
     toast('Screener coming in next update — data fetching for 500 tickers requires rate limiting', {
       icon: '⚙️',
-      style: { background: '#12121a', border: '1px solid #1e1e2e', color: '#f1f5f9', fontSize: 13 },
+      style: { background: '#ffffff', border: '1px solid #dde2e8', color: '#1a1a2e', fontSize: 13 },
       duration: 4000,
     })
   }
@@ -42,15 +42,15 @@ export default function Screener() {
   })
 
   const inputStyle = {
-    background: '#1a1a2e', border: '1px solid #1e1e2e', borderRadius: 6,
-    padding: '7px 10px', fontSize: 12, color: '#f1f5f9', outline: 'none', width: '100%',
+    background: '#e8ecf0', border: '1px solid #dde2e8', borderRadius: 6,
+    padding: '7px 10px', fontSize: 12, color: '#1a1a2e', outline: 'none', width: '100%',
     boxSizing: 'border-box' as const,
   }
 
   return (
     <div style={{ padding: '24px 24px 40px' }}>
       <div style={{ paddingBottom: 24 }}>
-        <h1 style={{ fontSize: 22, fontWeight: 700, color: '#f1f5f9', margin: 0 }}>Stock Screener</h1>
+        <h1 style={{ fontSize: 22, fontWeight: 700, color: '#1a1a2e', margin: 0 }}>Stock Screener</h1>
         <div style={{ fontSize: 13, color: '#64748b', marginTop: 4 }}>Filter S&P 500 by key criteria</div>
       </div>
 
@@ -63,15 +63,15 @@ export default function Screener() {
               key={p.label}
               onClick={() => handlePreset(p.label)}
               style={{
-                background: '#1a1a2e', border: '1px solid #1e1e2e', borderRadius: 8,
+                background: '#e8ecf0', border: '1px solid #dde2e8', borderRadius: 8,
                 padding: '16px', cursor: 'pointer', textAlign: 'left',
                 transition: 'border-color 0.15s',
               }}
               onMouseEnter={e => (e.currentTarget.style.borderColor = '#3b82f6')}
-              onMouseLeave={e => (e.currentTarget.style.borderColor = '#1e1e2e')}
+              onMouseLeave={e => (e.currentTarget.style.borderColor = '#dde2e8')}
             >
               <div style={{ fontSize: 20, marginBottom: 6 }}>{p.icon}</div>
-              <div style={{ fontSize: 13, fontWeight: 700, color: '#f1f5f9', marginBottom: 4 }}>{p.label}</div>
+              <div style={{ fontSize: 13, fontWeight: 700, color: '#1a1a2e', marginBottom: 4 }}>{p.label}</div>
               <div style={{ fontSize: 11, color: '#64748b' }}>{p.desc}</div>
             </button>
           ))}
@@ -127,7 +127,7 @@ export default function Screener() {
         <div style={{ overflowX: 'auto' }}>
           <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 13 }}>
             <thead>
-              <tr style={{ borderBottom: '1px solid #1e1e2e' }}>
+              <tr style={{ borderBottom: '1px solid #e2dfd8' }}>
                 {['Ticker', 'Sector', 'Price', 'Change %', 'RSI', 'Volume'].map(h => (
                   <th key={h} style={{ padding: '8px 10px', textAlign: h === 'Ticker' || h === 'Sector' ? 'left' : 'right', color: '#64748b', fontWeight: 600, fontSize: 11 }}>
                     {h}
@@ -137,14 +137,14 @@ export default function Screener() {
             </thead>
             <tbody>
               {filtered.map(r => (
-                <tr key={r.ticker} style={{ borderBottom: '1px solid #1e1e2e' }}>
-                  <td style={{ padding: '10px 10px', color: '#f1f5f9', fontWeight: 700, fontFamily: 'JetBrains Mono, monospace' }}>{r.ticker}</td>
+                <tr key={r.ticker} style={{ borderBottom: '1px solid #e2dfd8' }}>
+                  <td style={{ padding: '10px 10px', color: '#1a1a2e', fontWeight: 700, fontFamily: 'JetBrains Mono, monospace' }}>{r.ticker}</td>
                   <td style={{ padding: '10px 10px', color: '#64748b', fontSize: 12 }}>{r.sector}</td>
-                  <td style={{ padding: '10px 10px', textAlign: 'right', color: '#f1f5f9', fontFamily: 'JetBrains Mono, monospace' }}>${r.price.toFixed(2)}</td>
+                  <td style={{ padding: '10px 10px', textAlign: 'right', color: '#1a1a2e', fontFamily: 'JetBrains Mono, monospace' }}>${r.price.toFixed(2)}</td>
                   <td style={{ padding: '10px 10px', textAlign: 'right', fontWeight: 600, color: pnlColor(r.changePct), fontFamily: 'JetBrains Mono, monospace' }}>
                     {r.changePct >= 0 ? '+' : ''}{r.changePct.toFixed(2)}%
                   </td>
-                  <td style={{ padding: '10px 10px', textAlign: 'right', fontFamily: 'JetBrains Mono, monospace', color: r.rsi > 70 ? '#ef4444' : r.rsi < 30 ? '#22c55e' : '#f1f5f9' }}>
+                  <td style={{ padding: '10px 10px', textAlign: 'right', fontFamily: 'JetBrains Mono, monospace', color: r.rsi > 70 ? '#ef4444' : r.rsi < 30 ? '#22c55e' : '#1a1a2e' }}>
                     {r.rsi.toFixed(1)}
                   </td>
                   <td style={{ padding: '10px 10px', textAlign: 'right', color: '#64748b', fontFamily: 'JetBrains Mono, monospace' }}>{r.volume}</td>

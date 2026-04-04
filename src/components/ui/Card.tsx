@@ -13,8 +13,8 @@ export default function Card({ children, style, hover = false, padding = 16 }: C
     <div
       className={hover ? 'card-hover' : ''}
       style={{
-        backgroundColor: '#12121a',
-        border: '1px solid #1e1e2e',
+        backgroundColor: '#ffffff',
+        border: '1px solid #dde2e8',
         borderRadius: 8,
         padding,
         ...style,
@@ -29,7 +29,7 @@ export function CardHeader({ title, subtitle, action }: { title: string; subtitl
   return (
     <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', marginBottom: 16 }}>
       <div>
-        <div style={{ fontSize: 13, fontWeight: 600, color: '#f1f5f9', letterSpacing: '0.02em' }}>{title}</div>
+        <div style={{ fontSize: 13, fontWeight: 600, color: '#1a1a2e', letterSpacing: '0.02em' }}>{title}</div>
         {subtitle && <div style={{ fontSize: 11, color: '#64748b', marginTop: 2 }}>{subtitle}</div>}
       </div>
       {action}

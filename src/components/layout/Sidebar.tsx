@@ -34,8 +34,8 @@ export default function Sidebar({ open, onClose }: SidebarProps) {
       <aside style={{
         width: 220,
         minHeight: '100vh',
-        backgroundColor: '#12121a',
-        borderRight: '1px solid #1e1e2e',
+        backgroundColor: '#ffffff',
+        borderRight: '1px solid #dde2e8',
         display: 'flex',
         flexDirection: 'column',
         flexShrink: 0,
@@ -50,8 +50,8 @@ export default function Sidebar({ open, onClose }: SidebarProps) {
         position: 'fixed',
         top: 0, left: 0, bottom: 0,
         width: 240,
-        backgroundColor: '#12121a',
-        borderRight: '1px solid #1e1e2e',
+        backgroundColor: '#ffffff',
+        borderRight: '1px solid #dde2e8',
         display: 'flex',
         flexDirection: 'column',
         zIndex: 50,
@@ -92,7 +92,7 @@ function SidebarContents({ onClose, mobile = false }: { onClose: () => void; mob
   return (
     <>
       {/* Logo */}
-      <div style={{ padding: mobile ? '20px 16px 16px 16px' : '20px 16px 16px', borderBottom: '1px solid #1e1e2e' }}>
+      <div style={{ padding: mobile ? '20px 16px 16px 16px' : '20px 16px 16px', borderBottom: '1px solid #dde2e8' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
           <div style={{
             width: 38, height: 38, borderRadius: 9,
@@ -107,7 +107,7 @@ function SidebarContents({ onClose, mobile = false }: { onClose: () => void; mob
             }}>R</span>
           </div>
           <div>
-            <div style={{ fontWeight: 700, fontSize: 15, color: '#f1f5f9', letterSpacing: '0.05em' }}>JARVIS</div>
+            <div style={{ fontWeight: 700, fontSize: 15, color: '#1a1a2e', letterSpacing: '0.05em' }}>JARVIS</div>
             <div style={{ fontSize: 10, color: '#64748b', letterSpacing: '0.1em' }}>V2 TRADING</div>
           </div>
         </div>
@@ -131,20 +131,20 @@ function SidebarContents({ onClose, mobile = false }: { onClose: () => void; mob
               textDecoration: 'none',
               fontSize: 13,
               fontWeight: isActive ? 600 : 400,
-              color: isActive ? '#f1f5f9' : '#64748b',
-              backgroundColor: isActive ? '#1e1e2e' : 'transparent',
+              color: isActive ? '#1a1a2e' : '#64748b',
+              backgroundColor: isActive ? '#dde2e8' : 'transparent',
               transition: 'all 0.15s',
             })}
             onMouseEnter={e => {
               const el = e.currentTarget as HTMLElement
-              if (!el.style.backgroundColor.includes('1e1e2e')) {
-                el.style.color = '#f1f5f9'
-                el.style.backgroundColor = '#ffffff08'
+              if (!el.style.backgroundColor.includes('dde2e8')) {
+                el.style.color = '#1a1a2e'
+                el.style.backgroundColor = '#00000008'
               }
             }}
             onMouseLeave={e => {
               const el = e.currentTarget as HTMLElement
-              if (!el.style.backgroundColor.includes('1e1e2e')) {
+              if (!el.style.backgroundColor.includes('dde2e8')) {
                 el.style.color = '#64748b'
                 el.style.backgroundColor = 'transparent'
               }
@@ -157,7 +157,7 @@ function SidebarContents({ onClose, mobile = false }: { onClose: () => void; mob
       </nav>
 
       {/* Footer */}
-      <div style={{ padding: '12px 16px', borderTop: '1px solid #1e1e2e', fontSize: 10, color: '#64748b' }}>
+      <div style={{ padding: '12px 16px', borderTop: '1px solid #dde2e8', fontSize: 10, color: '#64748b' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
           <span style={{ width: 6, height: 6, borderRadius: '50%', backgroundColor: '#22c55e', display: 'inline-block' }} />
           Data: Yahoo Finance · CoinGecko

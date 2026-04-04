@@ -66,7 +66,7 @@ export default function Dashboard() {
     <div style={{ padding: '24px 24px 40px' }}>
       {/* Page Header */}
       <div style={{ paddingBottom: 24 }}>
-        <h1 style={{ fontSize: 22, fontWeight: 700, color: '#f1f5f9', margin: 0 }}>Dashboard</h1>
+        <h1 style={{ fontSize: 22, fontWeight: 700, color: '#1a1a2e', margin: 0 }}>Dashboard</h1>
         <div style={{ fontSize: 12, color: '#64748b', marginTop: 4 }}>
           {format(now, 'EEEE, MMMM d yyyy · h:mm a')}
         </div>
@@ -86,7 +86,7 @@ export default function Dashboard() {
             {(Array.isArray(marketData) ? marketData : []).map((item: MarketOverviewItem) => (
               <Card key={item.symbol} padding={14}>
                 <div style={{ fontSize: 11, fontWeight: 700, color: '#64748b', letterSpacing: '0.06em' }}>{item.label || item.symbol}</div>
-                <div style={{ fontSize: 17, fontWeight: 700, color: '#f1f5f9', marginTop: 4, fontFamily: 'JetBrains Mono, monospace' }}>
+                <div style={{ fontSize: 17, fontWeight: 700, color: '#1a1a2e', marginTop: 4, fontFamily: 'JetBrains Mono, monospace' }}>
                   {fmt.price(item.price)}
                 </div>
                 <div style={{ fontSize: 12, fontWeight: 600, color: pnlColor(item.changePct), marginTop: 2 }}>
@@ -115,8 +115,8 @@ export default function Dashboard() {
                     onKeyDown={e => e.key === 'Enter' && handleAddTicker()}
                     placeholder="Add ticker…"
                     style={{
-                      background: '#1a1a2e', border: '1px solid #1e1e2e', borderRadius: 6,
-                      padding: '5px 10px', fontSize: 12, color: '#f1f5f9', width: 110,
+                      background: '#e8ecf0', border: '1px solid #dde2e8', borderRadius: 6,
+                      padding: '5px 10px', fontSize: 12, color: '#1a1a2e', width: 110,
                       outline: 'none',
                     }}
                   />
@@ -144,9 +144,9 @@ export default function Dashboard() {
                 {watchlist.tickers.map(ticker => (
                   <div key={ticker} style={{
                     display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-                    padding: '8px 10px', borderRadius: 6, background: '#1a1a2e',
+                    padding: '8px 10px', borderRadius: 6, background: '#e8ecf0',
                   }}>
-                    <span style={{ fontSize: 13, fontWeight: 700, color: '#f1f5f9', fontFamily: 'JetBrains Mono, monospace' }}>
+                    <span style={{ fontSize: 13, fontWeight: 700, color: '#1a1a2e', fontFamily: 'JetBrains Mono, monospace' }}>
                       {ticker}
                     </span>
                     <div style={{ display: 'flex', gap: 8 }}>
@@ -188,11 +188,11 @@ export default function Dashboard() {
                     onClick={() => navigate(`/analyze/${item.ticker}`)}
                     style={{
                       display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-                      padding: '8px 10px', borderRadius: 6, background: '#1a1a2e', cursor: 'pointer',
+                      padding: '8px 10px', borderRadius: 6, background: '#e8ecf0', cursor: 'pointer',
                     }}
                   >
                     <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-                      <span style={{ fontSize: 13, fontWeight: 700, color: '#f1f5f9', fontFamily: 'JetBrains Mono, monospace', minWidth: 56 }}>
+                      <span style={{ fontSize: 13, fontWeight: 700, color: '#1a1a2e', fontFamily: 'JetBrains Mono, monospace', minWidth: 56 }}>
                         {item.ticker}
                       </span>
                       <Badge variant={verdictVariant(item.verdict)} size="xs">{item.verdict}</Badge>
@@ -225,7 +225,7 @@ export default function Dashboard() {
                 <div style={{ fontSize: 14, fontWeight: 700, color: fngInfo.color, marginTop: 8 }}>
                   {fngInfo.label}
                 </div>
-                <div style={{ marginTop: 12, background: '#1a1a2e', borderRadius: 6, height: 8, overflow: 'hidden' }}>
+                <div style={{ marginTop: 12, background: '#e8ecf0', borderRadius: 6, height: 8, overflow: 'hidden' }}>
                   <div style={{
                     width: `${fng.value}%`, height: '100%',
                     background: `linear-gradient(90deg, #ef4444, #f59e0b, #22c55e)`,

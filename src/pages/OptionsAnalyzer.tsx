@@ -84,15 +84,15 @@ export default function OptionsAnalyzer() {
   const callout = hasInputs ? getCallout(optType, sp, strike, dte, bsResult.probabilityOfProfit, bsResult.price) : null
 
   const inputStyle = {
-    width: '100%', background: '#1a1a2e', border: '1px solid #1e1e2e', borderRadius: 6,
-    padding: '10px 12px', fontSize: 15, color: '#f1f5f9', outline: 'none',
+    width: '100%', background: '#e8ecf0', border: '1px solid #dde2e8', borderRadius: 6,
+    padding: '10px 12px', fontSize: 15, color: '#1a1a2e', outline: 'none',
     boxSizing: 'border-box' as const,
   }
 
   return (
     <div style={{ padding: '24px 24px 40px' }}>
       <div style={{ paddingBottom: 24 }}>
-        <h1 style={{ fontSize: 22, fontWeight: 700, color: '#f1f5f9', margin: 0 }}>Options Calculator</h1>
+        <h1 style={{ fontSize: 22, fontWeight: 700, color: '#1a1a2e', margin: 0 }}>Options Calculator</h1>
         <div style={{ fontSize: 13, color: '#64748b', marginTop: 4 }}>
           Enter what you know — we'll tell you if it's worth it
         </div>
@@ -110,7 +110,7 @@ export default function OptionsAnalyzer() {
               style={{
                 flex: 1, padding: '12px 0', borderRadius: 8, border: 'none', cursor: 'pointer',
                 fontSize: 14, fontWeight: 700,
-                background: optType === 'call' ? '#22c55e' : '#1a1a2e',
+                background: optType === 'call' ? '#22c55e' : '#e8ecf0',
                 color: optType === 'call' ? '#fff' : '#475569',
                 transition: 'background 0.15s',
               }}
@@ -122,7 +122,7 @@ export default function OptionsAnalyzer() {
               style={{
                 flex: 1, padding: '12px 0', borderRadius: 8, border: 'none', cursor: 'pointer',
                 fontSize: 14, fontWeight: 700,
-                background: optType === 'put' ? '#ef4444' : '#1a1a2e',
+                background: optType === 'put' ? '#ef4444' : '#e8ecf0',
                 color: optType === 'put' ? '#fff' : '#475569',
                 transition: 'background 0.15s',
               }}
@@ -187,7 +187,7 @@ export default function OptionsAnalyzer() {
                 {callout.badge}
               </div>
             </div>
-            <p style={{ fontSize: 14, color: '#cbd5e1', margin: 0, lineHeight: 1.75 }}>
+            <p style={{ fontSize: 14, color: '#1a1a2e', margin: 0, lineHeight: 1.75 }}>
               {callout.summary}
             </p>
           </Card>
@@ -215,7 +215,7 @@ export default function OptionsAnalyzer() {
               },
             ].map(({ label, sub, value, color }) => (
               <div key={label} style={{
-                background: '#12121a', border: '1px solid #1e1e2e', borderRadius: 8, padding: '16px',
+                background: '#ffffff', border: '1px solid #dde2e8', borderRadius: 8, padding: '16px',
               }}>
                 <div style={{ fontSize: 11, color: '#64748b', marginBottom: 4 }}>{label}</div>
                 <div style={{ fontSize: 26, fontWeight: 800, color, fontFamily: 'JetBrains Mono, monospace', marginBottom: 4 }}>
@@ -234,11 +234,11 @@ export default function OptionsAnalyzer() {
             />
             <ResponsiveContainer width="100%" height={200}>
               <LineChart data={pnlData} margin={{ top: 4, right: 12, bottom: 4, left: 0 }}>
-                <CartesianGrid strokeDasharray="3 3" stroke="#1e1e2e" />
+                <CartesianGrid strokeDasharray="3 3" stroke="#dde2e8" />
                 <XAxis dataKey="price" tick={{ fill: '#64748b', fontSize: 10 }} tickFormatter={v => `$${v}`} />
                 <YAxis tick={{ fill: '#64748b', fontSize: 10 }} tickFormatter={v => `$${v}`} />
                 <Tooltip
-                  contentStyle={{ background: '#12121a', border: '1px solid #1e1e2e', borderRadius: 6, fontSize: 12 }}
+                  contentStyle={{ background: '#ffffff', border: '1px solid #dde2e8', borderRadius: 6, fontSize: 12 }}
                   formatter={(v: number) => [`$${v.toFixed(2)}`, 'Profit / Loss']}
                   labelFormatter={l => `If stock is at $${l}`}
                 />

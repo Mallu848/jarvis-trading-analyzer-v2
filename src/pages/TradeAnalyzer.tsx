@@ -21,7 +21,7 @@ function verdictVariant(v: string): 'green' | 'red' | 'amber' | 'blue' | 'muted'
 
 function qualityStars(q: number) {
   return Array.from({ length: 5 }).map((_, i) => (
-    <span key={i} style={{ color: i < q ? '#f59e0b' : '#1e1e2e', fontSize: 16 }}>★</span>
+    <span key={i} style={{ color: i < q ? '#f59e0b' : '#dde2e8', fontSize: 16 }}>★</span>
   ))
 }
 
@@ -107,7 +107,7 @@ export default function TradeAnalyzer() {
     return (
       <div style={{ padding: '24px 24px 40px' }}>
         <div style={{ paddingBottom: 24 }}>
-          <h1 style={{ fontSize: 22, fontWeight: 700, color: '#f1f5f9', margin: 0 }}>Trade Analyzer</h1>
+          <h1 style={{ fontSize: 22, fontWeight: 700, color: '#1a1a2e', margin: 0 }}>Trade Analyzer</h1>
           <div style={{ fontSize: 13, color: '#64748b', marginTop: 4 }}>Enter a ticker to get a full trade setup analysis</div>
         </div>
         <Card style={{ maxWidth: 480 }}>
@@ -120,8 +120,8 @@ export default function TradeAnalyzer() {
               placeholder="e.g. TSLA, AAPL, BTC-USD"
               autoFocus
               style={{
-                flex: 1, background: '#1a1a2e', border: '1px solid #1e1e2e', borderRadius: 6,
-                padding: '9px 12px', fontSize: 13, color: '#f1f5f9', outline: 'none',
+                flex: 1, background: '#e8ecf0', border: '1px solid #dde2e8', borderRadius: 6,
+                padding: '9px 12px', fontSize: 13, color: '#1a1a2e', outline: 'none',
               }}
             />
             <button
@@ -168,7 +168,7 @@ export default function TradeAnalyzer() {
       <div style={{ paddingBottom: 16, display: 'flex', alignItems: 'center', gap: 12 }}>
         <div style={{ flex: 1 }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-            <h1 style={{ fontSize: 22, fontWeight: 700, color: '#f1f5f9', margin: 0 }}>{ticker}</h1>
+            <h1 style={{ fontSize: 22, fontWeight: 700, color: '#1a1a2e', margin: 0 }}>{ticker}</h1>
             <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
               <input
                 value={searchInput}
@@ -176,8 +176,8 @@ export default function TradeAnalyzer() {
                 onKeyDown={e => e.key === 'Enter' && searchInput.trim() && navigate(`/analyze/${searchInput.trim()}`)}
                 placeholder="Switch ticker…"
                 style={{
-                  background: '#1a1a2e', border: '1px solid #1e1e2e', borderRadius: 6,
-                  padding: '5px 10px', fontSize: 12, color: '#f1f5f9', outline: 'none', width: 150,
+                  background: '#e8ecf0', border: '1px solid #dde2e8', borderRadius: 6,
+                  padding: '5px 10px', fontSize: 12, color: '#1a1a2e', outline: 'none', width: 150,
                 }}
               />
               <button
@@ -196,7 +196,7 @@ export default function TradeAnalyzer() {
         <button
           onClick={() => isWatched ? watchlist.remove(ticker) : watchlist.add(ticker)}
           style={{
-            background: isWatched ? '#f59e0b18' : '#1a1a2e', border: `1px solid ${isWatched ? '#f59e0b30' : '#1e1e2e'}`,
+            background: isWatched ? '#f59e0b18' : '#e8ecf0', border: `1px solid ${isWatched ? '#f59e0b30' : '#dde2e8'}`,
             borderRadius: 6, padding: '7px 12px', cursor: 'pointer',
             color: isWatched ? '#f59e0b' : '#64748b', fontSize: 12, display: 'flex', alignItems: 'center', gap: 5,
           }}
@@ -254,7 +254,7 @@ export default function TradeAnalyzer() {
           {/* Quote Header */}
           <Card>
             <div style={{ display: 'flex', alignItems: 'baseline', gap: 12, flexWrap: 'wrap' }}>
-              <span style={{ fontSize: 36, fontWeight: 800, color: '#f1f5f9', fontFamily: 'JetBrains Mono, monospace' }}>
+              <span style={{ fontSize: 36, fontWeight: 800, color: '#1a1a2e', fontFamily: 'JetBrains Mono, monospace' }}>
                 {fmt.price(quote.price)}
               </span>
               <span style={{ fontSize: 18, fontWeight: 600, color: pnlColor(quote.change) }}>
@@ -262,7 +262,7 @@ export default function TradeAnalyzer() {
               </span>
               <div style={{ marginLeft: 'auto', textAlign: 'right' }}>
                 <div style={{ fontSize: 11, color: '#64748b' }}>Volume</div>
-                <div style={{ fontSize: 14, fontWeight: 600, color: '#f1f5f9', fontFamily: 'JetBrains Mono, monospace' }}>
+                <div style={{ fontSize: 14, fontWeight: 600, color: '#1a1a2e', fontFamily: 'JetBrains Mono, monospace' }}>
                   {fmt.volume(quote.volume)}
                 </div>
               </div>
@@ -354,33 +354,33 @@ export default function TradeAnalyzer() {
 
             <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginBottom: 10 }}>
               {setup.rsiValue && (
-                <div style={{ background: '#1a1a2e', borderRadius: 6, padding: '4px 10px' }}>
+                <div style={{ background: '#e8ecf0', borderRadius: 6, padding: '4px 10px' }}>
                   <span style={{ fontSize: 11, color: '#64748b' }}>RSI </span>
-                  <span style={{ fontSize: 12, fontWeight: 700, color: setup.rsiValue < 30 ? '#22c55e' : setup.rsiValue > 70 ? '#ef4444' : '#f1f5f9', fontFamily: 'JetBrains Mono, monospace' }}>
+                  <span style={{ fontSize: 12, fontWeight: 700, color: setup.rsiValue < 30 ? '#22c55e' : setup.rsiValue > 70 ? '#ef4444' : '#1a1a2e', fontFamily: 'JetBrains Mono, monospace' }}>
                     {setup.rsiValue.toFixed(1)}
                   </span>
                 </div>
               )}
               {setup.atrValue && (
-                <div style={{ background: '#1a1a2e', borderRadius: 6, padding: '4px 10px' }}>
+                <div style={{ background: '#e8ecf0', borderRadius: 6, padding: '4px 10px' }}>
                   <span style={{ fontSize: 11, color: '#64748b' }}>ATR </span>
-                  <span style={{ fontSize: 12, fontWeight: 700, color: '#f1f5f9', fontFamily: 'JetBrains Mono, monospace' }}>
+                  <span style={{ fontSize: 12, fontWeight: 700, color: '#1a1a2e', fontFamily: 'JetBrains Mono, monospace' }}>
                     {fmt.price(setup.atrValue)}
                   </span>
                 </div>
               )}
-              <div style={{ background: '#1a1a2e', borderRadius: 6, padding: '4px 10px' }}>
+              <div style={{ background: '#e8ecf0', borderRadius: 6, padding: '4px 10px' }}>
                 <span style={{ fontSize: 11, color: '#64748b' }}>R:R T1 </span>
-                <span style={{ fontSize: 12, fontWeight: 700, color: '#f1f5f9', fontFamily: 'JetBrains Mono, monospace' }}>
+                <span style={{ fontSize: 12, fontWeight: 700, color: '#1a1a2e', fontFamily: 'JetBrains Mono, monospace' }}>
                   1:{setup.riskRewardT1.toFixed(2)}
                 </span>
               </div>
             </div>
 
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 6, paddingTop: 12, borderTop: '1px solid #1e1e2e' }}>
-              <div><span style={{ fontSize: 11, color: '#22c55e', fontWeight: 700 }}>BULLS NEED: </span><span style={{ fontSize: 12, color: '#f1f5f9' }}>{setup.bullsNeed}</span></div>
-              <div><span style={{ fontSize: 11, color: '#ef4444', fontWeight: 700 }}>BEARS WIN: </span><span style={{ fontSize: 12, color: '#f1f5f9' }}>{setup.bearsWin}</span></div>
-              <div><span style={{ fontSize: 11, color: '#3b82f6', fontWeight: 700 }}>BEST SETUP: </span><span style={{ fontSize: 12, color: '#f1f5f9' }}>{setup.bestSetup}</span></div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 6, paddingTop: 12, borderTop: '1px solid #dde2e8' }}>
+              <div><span style={{ fontSize: 11, color: '#22c55e', fontWeight: 700 }}>BULLS NEED: </span><span style={{ fontSize: 12, color: '#1a1a2e' }}>{setup.bullsNeed}</span></div>
+              <div><span style={{ fontSize: 11, color: '#ef4444', fontWeight: 700 }}>BEARS WIN: </span><span style={{ fontSize: 12, color: '#1a1a2e' }}>{setup.bearsWin}</span></div>
+              <div><span style={{ fontSize: 11, color: '#3b82f6', fontWeight: 700 }}>BEST SETUP: </span><span style={{ fontSize: 12, color: '#1a1a2e' }}>{setup.bestSetup}</span></div>
             </div>
           </Card>
 
@@ -395,8 +395,8 @@ export default function TradeAnalyzer() {
                   value={accountSizeStr}
                   onChange={e => setAccountSizeStr(e.target.value)}
                   style={{
-                    width: '100%', background: '#1a1a2e', border: '1px solid #1e1e2e', borderRadius: 6,
-                    padding: '8px 10px', fontSize: 13, color: '#f1f5f9', outline: 'none', boxSizing: 'border-box',
+                    width: '100%', background: '#e8ecf0', border: '1px solid #dde2e8', borderRadius: 6,
+                    padding: '8px 10px', fontSize: 13, color: '#1a1a2e', outline: 'none', boxSizing: 'border-box',
                   }}
                 />
               </div>
@@ -408,8 +408,8 @@ export default function TradeAnalyzer() {
                   step={0.5}
                   onChange={e => setRiskPctStr(e.target.value)}
                   style={{
-                    width: '100%', background: '#1a1a2e', border: '1px solid #1e1e2e', borderRadius: 6,
-                    padding: '8px 10px', fontSize: 13, color: '#f1f5f9', outline: 'none', boxSizing: 'border-box',
+                    width: '100%', background: '#e8ecf0', border: '1px solid #dde2e8', borderRadius: 6,
+                    padding: '8px 10px', fontSize: 13, color: '#1a1a2e', outline: 'none', boxSizing: 'border-box',
                   }}
                 />
               </div>
@@ -418,11 +418,11 @@ export default function TradeAnalyzer() {
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 10 }}>
                 {[
                   { label: 'Max Risk', value: fmt.currency(sizing.maxRisk), color: '#ef4444' },
-                  { label: 'Shares', value: sizing.shares.toString(), color: '#f1f5f9' },
-                  { label: 'Total Cost', value: fmt.currency(sizing.totalCost), color: '#f1f5f9' },
+                  { label: 'Shares', value: sizing.shares.toString(), color: '#1a1a2e' },
+                  { label: 'Total Cost', value: fmt.currency(sizing.totalCost), color: '#1a1a2e' },
                   { label: 'If Wrong, Lose', value: fmt.currency(sizing.maxRisk), color: '#ef4444' },
                 ].map(({ label, value, color }) => (
-                  <div key={label} style={{ background: '#1a1a2e', borderRadius: 6, padding: '10px 12px' }}>
+                  <div key={label} style={{ background: '#e8ecf0', borderRadius: 6, padding: '10px 12px' }}>
                     <div style={{ fontSize: 10, color: '#64748b', marginBottom: 4 }}>{label}</div>
                     <div style={{ fontSize: 15, fontWeight: 700, color, fontFamily: 'JetBrains Mono, monospace' }}>{value}</div>
                   </div>
@@ -436,16 +436,16 @@ export default function TradeAnalyzer() {
             <CardHeader title="Technical Indicators" />
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 10 }}>
               {[
-                { label: 'EMA 5', value: lastEma5 ? fmt.price(lastEma5) : '—', color: '#f1f5f9' },
-                { label: 'EMA 9', value: lastEma9 ? fmt.price(lastEma9) : '—', color: '#f1f5f9' },
-                { label: 'EMA 21', value: lastEma21 ? fmt.price(lastEma21) : '—', color: '#f1f5f9' },
-                { label: 'RSI', value: lastRsi ? lastRsi.toFixed(1) : '—', color: lastRsi ? (lastRsi < 30 ? '#22c55e' : lastRsi > 70 ? '#ef4444' : '#f1f5f9') : '#64748b' },
+                { label: 'EMA 5', value: lastEma5 ? fmt.price(lastEma5) : '—', color: '#1a1a2e' },
+                { label: 'EMA 9', value: lastEma9 ? fmt.price(lastEma9) : '—', color: '#1a1a2e' },
+                { label: 'EMA 21', value: lastEma21 ? fmt.price(lastEma21) : '—', color: '#1a1a2e' },
+                { label: 'RSI', value: lastRsi ? lastRsi.toFixed(1) : '—', color: lastRsi ? (lastRsi < 30 ? '#22c55e' : lastRsi > 70 ? '#ef4444' : '#1a1a2e') : '#64748b' },
                 { label: 'MACD Hist', value: lastMacd !== null ? lastMacd.toFixed(3) : '—', color: lastMacd !== null ? pnlColor(lastMacd) : '#64748b' },
-                { label: 'ATR', value: lastAtr ? fmt.price(lastAtr) : '—', color: '#f1f5f9' },
-                { label: 'Vol Ratio', value: `${(tech.volumeRatio * 100).toFixed(0)}%`, color: tech.volumeRatio > 1.5 ? '#22c55e' : tech.volumeRatio < 0.7 ? '#64748b' : '#f1f5f9' },
+                { label: 'ATR', value: lastAtr ? fmt.price(lastAtr) : '—', color: '#1a1a2e' },
+                { label: 'Vol Ratio', value: `${(tech.volumeRatio * 100).toFixed(0)}%`, color: tech.volumeRatio > 1.5 ? '#22c55e' : tech.volumeRatio < 0.7 ? '#64748b' : '#1a1a2e' },
                 { label: 'FTFC', value: tech.ftfc, color: ftfcColor(tech.ftfc) },
               ].map(({ label, value, color }) => (
-                <div key={label} style={{ background: '#1a1a2e', borderRadius: 6, padding: '10px 12px' }}>
+                <div key={label} style={{ background: '#e8ecf0', borderRadius: 6, padding: '10px 12px' }}>
                   <div style={{ fontSize: 10, color: '#64748b', marginBottom: 4 }}>{label}</div>
                   <div style={{ fontSize: 14, fontWeight: 700, color, fontFamily: 'JetBrains Mono, monospace' }}>{value}</div>
                 </div>
@@ -465,7 +465,7 @@ export default function TradeAnalyzer() {
                   { label: 'Nearest Resistance', value: tech.resistanceLevels[0] ?? null, color: '#ef4444' },
                   { label: 'Nearest Support', value: tech.supportLevels[0] ?? null, color: '#22c55e' },
                 ].map(({ label, value, color }) => (
-                  <tr key={label} style={{ borderBottom: '1px solid #1e1e2e' }}>
+                  <tr key={label} style={{ borderBottom: '1px solid #dde2e8' }}>
                     <td style={{ padding: '8px 4px', fontSize: 12, color: '#64748b' }}>{label}</td>
                     <td style={{ padding: '8px 4px', fontSize: 13, fontWeight: 700, color, textAlign: 'right', fontFamily: 'JetBrains Mono, monospace' }}>
                       {value ? fmt.price(value) : '—'}
